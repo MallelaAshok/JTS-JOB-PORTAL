@@ -1,0 +1,91 @@
+.login-form-bg {
+
+  // position: fixed;
+  // margin-left: 100px;
+  padding: 5px 40px 5px 40px;
+
+}
+
+.login-img-bg {
+
+  background-color: #F4F4F4;
+  border-radius: 17.5px;
+
+
+}
+
+.sign-in-note {
+  margin-top: -25px;
+  font-size: 10px;
+
+}
+
+.otp-note{
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+.get-otp{
+  margin-top: 30px;
+  background-color: #51A7F1;
+  border: 1px solid #51A7F1;
+  width: 80px;
+  margin-left: -5px;
+}
+
+.get-otp:hover{
+  margin-top: 30px;
+  background-color: #51A7F1;
+  border: 1px solid #51A7F1;
+}
+
+.get-otp-timer{
+  margin-top: 30px;
+  background-color: #51A7F1;
+  border: 1px solid #51A7F1;
+  width:50px!important;
+
+}
+
+::ng-deep .ngx-otp-input {
+  width: 50px!important;
+  height: 55px!important;
+  text-align: center;
+  font-size: 1.25rem;
+  border: 1px solid #212121;
+  border-radius: 4px;
+  outline: 0;
+}
+
+
+
+::ng-deep .ngx-otp-input-container{
+  margin-left: 0px!important;
+}
+
+.error-display{
+  color: red;
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: -15px;
+ 
+}
+
+.invalid-feedback {
+  display: none;
+  width: 100%;
+  margin-top: -15px;
+  font-size: 14px;
+  color: red
+}
+
+
+
+//Media Query//
+
+@media only screen and (max-width: 420px) { 
+  .login-res lab{
+    width: 100%;
+
+  }
+  }

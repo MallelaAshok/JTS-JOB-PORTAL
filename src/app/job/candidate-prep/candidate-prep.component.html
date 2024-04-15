@@ -1,0 +1,365 @@
+<section class="main-content">
+    <ul class="breadcrumb breadcrumb-style">
+        <li class="breadcrumb-item">
+            <h5 class="page-title m-b-0">Candidate Preference</h5>
+        </li>
+    </ul>
+    <div class="section-body">
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container">
+                        <form [formGroup]="AddCanPrepForm">
+                            <div class="row" *ngFor="let CaP of CanPrepArray">
+                                <div class="form-group col-md-12"
+                                    *ngIf="CaP.label!=='Notice Period'&&CaP.label!=='Gender'&&CaP.label!=='Age Group'&&CaP.label!=='Experience Required'&&CaP.label!=='app_location_type'&&CaP.label!=='Recive Application From' && CaP.label!=='Qualification' && CaP.label!=='Skills' && CaP.label!=='Language' && CaP.label!=='No Preference'">
+                                    <label>{{CaP.label}}
+                                        <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="" [formControlName]="CaP.name"
+                                        required
+                                        [ngClass]="(AddCanPrepForm.get('job_title')?.touched && !AddCanPrepForm.get('job_title')?.valid)?'form-control is-invalid':'form-control'" />
+                                    <small
+                                        *ngIf=" !AddCanPrepForm.get('job_title')?.valid && AddCanPrepForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{CaP.label}}
+                                    </small>
+                                </div>
+
+                                <div class="form-group col-md-12" *ngIf="CaP.label=='Language'">
+                                    <label>{{CaP.label}}
+                                        <span class="text-danger">*</span></label>
+
+                                    <select required formControlName={{CaP.name}} (change)="changelanguage(CaP,$event)"
+                                        [ngClass]="(AddCanPrepForm.get('add_perks')?.touched && !AddCanPrepForm.get('add_perks')?.valid)?'form-control custom-select':'form-control custom-select'">
+                                        <option *ngFor="let role of langList" [value]="role?.id"
+                                            [ngClass]="(AddCanPrepForm.get('add_perks')?.touched && !AddCanPrepForm.get('add_perks')?.valid)?'form-control ':'form-control'">
+                                            {{role?.language_name}}</option>
+                                    </select>
+                                    <!-- <small style="display: inline-flex;">
+                                        <p *ngFor="let arr of CaP.array">
+                                            &nbsp;
+                                            <label
+                                                style="padding-left: 10px;top:5px;background: #D9D9D9;border-radius: 50px;position: relative;left: 5px;">
+                                                {{arr}}
+                                                <span
+                                                    style="margin:6px; text-align:center;position: relative; cursor: pointer;"
+                                                    (click)="deletebtn(CaP,arr)">&#10005;</span>
+                                            </label>
+                                        </p>
+                                    </small> -->
+                                    <br>
+
+                                    <div style="position: relative;display: grid;row-gap: 5px;">
+
+                                        <div class="container p-1" *ngFor="let lan of CaP.array;let i = index"
+                                            style="background-color: white;border: 1px solid;border-color: #bdc1c5; display: inline-flex;height: 40px;align-items: center;border-radius: 5px;">
+                                            <div style="font-size: medium;" class="col-md-5">
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{lan?.name}}</div>
+
+                                            <div style="width: 100%;">
+
+                                                <div class="selectgroup" class="col-md-7"
+                                                    style="display: flex;width: 100%;margin-left: 5px;">
+                                                    <label class="selectgroup-label" style="flex: 1;"
+                                                        *ngFor="let JType of rateLanguage">
+                                                        <input type="radio" style="border-radius: 0px;"
+                                                            [checked]="lan?.defalutselected == JType?.value"
+                                                            [value]="JType.value" name="lanrad{{i}}"
+                                                            (change)="checklan($event,lan,JType)"
+                                                            class="selectgroup-input-radio form-control">
+                                                        <div class="selectgroup-button" style="border-radius: 0px;
+                                                            height: 40px; ">
+                                                            <span>{{JType.label}}</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="CaP.label=='Skills'">
+                                    <label style="height: 0px;"> {{CaP.label}}
+                                        <span class="text-danger">*</span></label>
+                                    <!-- <input type="text" class="form-control" placeholder="" [formControlName]="CaP.name"
+                                        (keydown.enter)="bindlabel(CaP,$event)"
+                                        [ngClass]="(AddCanPrepForm.get('job_title')?.touched && !AddCanPrepForm.get('job_title')?.valid)?'form-control is-invalid':'form-control'" />
+                                    <small style="display: inline-flex;">
+                                        <p *ngFor="let arr of CaP.array"
+                                            style="padding-left: 10px;background: #D9D9D9;border-radius: 50px;">{{arr}}
+                                            <span
+                                                style="margin:6px; text-align:center;position: relative; cursor: pointer;"
+                                                (click)="deletebtn(CaP,arr)">&#10005;</span>
+                                        </p>
+                                    </small> -->
+
+                                    <!-- 
+                                    <select required formControlName={{CaP.name}} (change)="changeselect(CaP,$event)"
+                                        [ngClass]="(AddCanPrepForm.get('add_perks')?.touched && !AddCanPrepForm.get('add_perks')?.valid)?'form-control custom-select':'form-control custom-select'">
+                                        <option *ngFor="let role of skillList" [value]="role?.skill_name"
+                                            [ngClass]="(AddCanPrepForm.get('add_perks')?.touched && !AddCanPrepForm.get('add_perks')?.valid)?'form-control ':'form-control'">
+                                            {{role?.skill_name}}</option>
+                                    </select>
+                                    <small style="display: inline-flex;">
+                                        <p *ngFor="let arr of CaP.array"> &nbsp;
+                                            <label
+                                                style="padding-left: 10px;background: #D9D9D9;border-radius: 50px;position: relative;left: 5px;">
+                                                {{arr}}
+                                                <span
+                                                    style="margin:6px; text-align:center;position: relative; cursor: pointer;"
+                                                    (click)="deletebtn(CaP,arr)">&#10005;</span>
+                                            </label>
+                                        </p>
+                                    </small>
+
+                                    <small
+                                        *ngIf=" !AddCanPrepForm.get('job_title')?.valid && AddCanPrepForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{CaP.label}}
+                                    </small> -->
+
+                                    <div>
+
+                                        <small>You can add up to 10 key skills to make your job visible to the right
+                                            candidates</small>
+                                        <br><br>
+                                        <div>
+                                            <span *ngFor="let arr of CaP.array">
+                                                <span style="
+                                            border: 1px solid #6882b0;
+                                            border-radius: 18px;
+                                            height: 26px;   
+                                            padding: 4px;
+                                            background-color: aliceblue; position:relative;left:10px">
+                                                    &nbsp;
+                                                    <label style="color: rgb(4, 65, 86);">{{arr}}</label> <span
+                                                        style="color: rgb(4, 65, 86);margin:6px; text-align:center;position: relative; cursor: pointer;top:1px"
+                                                        (click)="deletebtn1(CaP,arr)">&#10005;</span>
+                                                </span> &nbsp;
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <input type="text" style="width: 40%;" class="form-control"
+                                            (keydown.enter)="addskills($event)" placeholder="Enter your skills">
+                                        <!-- <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                                @for (option of filteredOptions | async; track option) {
+                                                  <mat-option [value]="option">{{option}}</mat-option>
+                                                }
+                                              </mat-autocomplete> -->
+
+                                    </div>
+                                    <br>
+                                    <div style="background-color: aliceblue;border-radius: 5px">
+                                        <br>
+                                        <div>
+                                            <h6 style="left: 11px;position: relative;color: #96bcdd;">Suggested Skills:
+                                            </h6>
+                                        </div>
+
+                                        <div>
+                                            <span *ngFor="let ski of skillList;let i = index">
+
+                                                &nbsp;
+                                                <label id="ski{{i}}" style="background-color: white;
+                                                            white-space: nowrap;
+                                                            border: 1px solid #8aa9c4;
+                                                            border-radius: 21px;
+                                                            color: black;
+                                                            width: fit-content;
+                                                            align-items: center;
+                                                            justify-content: space-between;
+                                                            padding: 5px;
+                                                            cursor: pointer;margin-top:10px"
+                                                    (click)="selectskill(CaP,ski,'ski',i)">
+                                                    <span>{{ ski?.skill_name }}</span>&nbsp;
+                                                    <span *ngIf="ski?.sign =='P'">&plus;</span>
+                                                    <span *ngIf="ski?.sign =='I'"
+                                                        style="font-size: small; top:2px;position: relative;left: 4px;">
+                                                        &#10005;</span>&nbsp;
+                                                </label>
+
+                                            </span>
+                                        </div>
+                                        <br><br>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="form-group col-md-12" *ngIf="CaP.label=='Qualification'">
+                                    <label>{{CaP.label}}
+                                        <span class="text-danger">*</span></label>
+
+                                    <select required formControlName={{CaP.name}} (change)="changeselect(CaP,$event)"
+                                        [ngClass]="(AddCanPrepForm.get('add_perks')?.touched && !AddCanPrepForm.get('add_perks')?.valid)?'form-control custom-select':'form-control custom-select'">
+                                        <option *ngFor="let role of eduList" [value]="role?.id"
+                                            [ngClass]="(AddCanPrepForm.get('add_perks')?.touched && !AddCanPrepForm.get('add_perks')?.valid)?'form-control ':'form-control'">
+                                            {{role?.education}}</option>
+                                    </select>
+                                    <small style="display: inline-flex;">
+                                        <p *ngFor="let arr of CaP.array">
+                                            &nbsp;
+                                            <label
+                                                style="padding-left: 10px;top:5px;background: #D9D9D9;border-radius: 50px;position: relative;left: 5px;">
+                                                {{arr}}
+                                                <span
+                                                    style="margin:6px; text-align:center;position: relative; cursor: pointer;"
+                                                    (click)="deletebtn(CaP,arr)">&#10005;</span>
+                                            </label>
+                                        </p>
+                                    </small>
+
+                                    <small
+                                        *ngIf=" !AddCanPrepForm.get('job_title')?.valid && AddCanPrepForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{CaP.label}}
+                                    </small>
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="CaP.label=='Notice Period'">
+                                    <label>{{CaP.label}}
+                                        <span class="text-danger">*</span></label>
+
+                                    <select required formControlName={{CaP.name}}
+                                        [ngClass]="(AddCanPrepForm.get('add_perks')?.touched && !AddCanPrepForm.get('add_perks')?.valid)?'form-control custom-select':'form-control custom-select'">
+                                        <option *ngFor="let role of noticeperiodList" [value]="role?.id"
+                                            [ngClass]="(AddCanPrepForm.get('add_perks')?.touched && !AddCanPrepForm.get('add_perks')?.valid)?'form-control ':'form-control'">
+                                            {{role?.notice_period_name}}</option>
+                                    </select>
+
+
+                                    <small
+                                        *ngIf=" !AddCanPrepForm.get('job_title')?.valid && AddCanPrepForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{CaP.label}}
+                                    </small>
+                                </div>
+
+                                <div class="form-group col-md-12" *ngIf="CaP.label=='No Preference'">
+                                    <input type="checkbox" placeholder="" id="chkpre" [formControlName]="CaP.name" />
+                                    &nbsp;
+                                    <label for="chkpre"> {{CaP.label}}<span class="text-danger">*</span></label>
+                                    <small
+                                        *ngIf=" !AddCanPrepForm.get('job_title')?.valid && AddCanPrepForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{CaP.label}}
+                                    </small>
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="CaP.label === 'Gender'">
+                                    <label class="form-label">{{CaP.label}}
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <br>
+                                    <div class="selectgroup">
+                                        <label class="" *ngFor="let GeA of genderArray">
+                                            &nbsp;
+                                            <input type="radio" [value]="GeA.value" [name]="GeA.name" class=""
+                                                [formControlName]="GeA.name">
+                                            &nbsp;
+                                            <span class="" style="top: -2px;
+                                            position: relative;
+                                            ">{{GeA.label}}</span>
+                                            &nbsp;
+                                            &nbsp;
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="CaP.label === 'Age Group'">
+                                    <label>{{CaP.label}}<span class="text-danger">*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" (keypress)="onlynumbers($event)"
+                                                (input)="agechange($event)" [placeholder]="AgeRange[0].label"
+                                                [formControlName]="AgeRange[0].name" required />
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" (input)="agechange($event)"
+                                                (keypress)="onlynumbers($event)" [placeholder]="AgeRange[1].label"
+                                                [formControlName]="AgeRange[1].name" required />
+                                        </div>
+                                    </div>
+                                    <small *ngIf="agewarning" class="form-text text-danger">
+                                        Please Enter Proper age range
+                                    </small>
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="CaP.label === 'Experience Required'">
+                                    <label class="form-label">{{CaP.label}}
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <br>
+                                    <div class="selectgroup ">
+                                        <label class="" *ngFor="let EtA of expTypeArray">
+                                            <input type="radio" [value]="EtA.value" [name]="EtA.name" class=""
+                                                [formControlName]="EtA.name">
+                                            &nbsp;
+                                            <span class="" style="top: -2px;
+                                            position: relative;">{{EtA.label}}</span>
+                                            &nbsp;&nbsp;
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12"
+                                    *ngIf="CaP.label === 'Experience Required' && AddCanPrepForm.value.experience_type === '2'">
+                                    <div class="form-group col-md-6" *ngFor="let Exp of expArray">
+                                        <label>{{Exp.label}}
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select class="form-select form-control" [formControlName]="Exp.name">
+                                            <option *ngFor="let minEx of MinExp" [value]="minEx.option">{{minEx.option}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12"
+                                    *ngIf="CaP.label === 'Experience Required' && AddCanPrepForm.value.experience_type ===  '3'">
+                                    <div *ngFor="let AnyE of anyExp">
+                                        <label>{{AnyE.label}}
+                                            <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" placeholder=""
+                                            [formControlName]="AnyE.name" required />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="CaP.label === 'Recive Application From'">
+                                    <label class="form-label">{{CaP.label}}
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <br>
+                                    <div class="selectgroup ">
+                                        <label class="" *ngFor="let LoA of locationArray">
+                                            <input type="radio" [value]="LoA.value" [name]="LoA.name" class=""
+                                                [formControlName]="LoA.name">&nbsp;
+                                            <span class="" style="top: -2px;
+                                            position: relative;">{{LoA.label}}</span>&nbsp;&nbsp;
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12"
+                                    *ngIf="CaP.label === 'Recive Application From' && AddCanPrepForm.value.app_location_type === '2'">
+                                    <div *ngFor="let Spl of specLocation">
+                                        <label>{{Spl.label}}</label>
+                                        <input type="text" class="form-control" placeholder=""
+                                            [formControlName]="Spl.name" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="error" class="bg-error mb-3">
+                                Please Fill all the fields Correctly
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-5" style="float: right;
+                            margin-right: 25px;
+                            font-size: large;
+                            width: 150px;
+                            height: 36px;
+                        " (click)="onSubmit()">
+                                Next
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

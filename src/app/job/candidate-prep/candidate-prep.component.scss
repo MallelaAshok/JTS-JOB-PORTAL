@@ -1,0 +1,130 @@
+.bs-stepper .step-trigger {
+    padding: 0px;
+  }
+  .bs-stepper-content {
+    padding: 1em;
+  }
+  .dropdown-divider {
+    border: 1px solid #f9f9f9 !important;
+  }
+  .dropdown-divider {
+    height: 0;
+    margin: var(--bs-dropdown-divider-margin-y) 0;
+    overflow: hidden;
+    opacity: 1;
+  }
+  .salaryPreviewBox {
+    margin: 2.5em 1em;
+    background: #d9e9f4;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #b3bcc1;
+    h5,
+    h6 {
+      font-weight: unset;
+    }
+    h6 {
+      color: #495057;
+      font-size: 14px;
+    }
+  }
+  .preview_list {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    list-style-type: none;
+  }
+  .preview_list li:first-child {
+    width: 200px;
+  }
+  .preview_list li {
+    float: left;
+  }
+  .preview_list li label {
+    color: #756c6c;
+    font-weight: normal;
+  }
+  
+  
+  .map-size{
+    height: 200px!important;
+  }
+  
+  .btn-next{
+    float: right;
+    width: 100px;
+  }
+  
+  .selectgroup-item{
+    margin-right: 10px;
+    border-radius: 35px;
+  }
+  
+  .selectgroup-item:not(:first-child) .selectgroup-button {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  
+  .selectgroup-item:not(:last-child) .selectgroup-button{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  
+  .selectgroup-item[_ngcontent-ng-c2900721703]:not(:last-child) .selectgroup-button[_ngcontent-ng-c2900721703] {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+  .selectgroup-button {
+    background-color: #fdfdff;
+    border-color: #bdc1c5;
+    border-width: 1px;
+    border-style: solid;
+    display: block;
+    text-align: center;
+    padding: 0 1rem;
+    height: 35px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 15px;
+    -webkit-user-select: none;
+    user-select: none;
+    font-size: 13px;
+    min-width: 2.375rem;
+    line-height: 36px;
+  }
+  
+  .selectgroup-input-radio:focus + .selectgroup-button, .selectgroup-input-radio:checked + .selectgroup-button {
+    background-color: #019eff;
+    color: #fff;
+    z-index: 1;
+  }
+  
+  .f-right{
+    float: right!important;
+  }
+
+  .bg-error{
+    background-color: transparent;
+    color: red;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  @media only screen and (max-width: 778px) {
+    div#test-l-5 .card-body {
+      padding: 0;
+    }
+    .bs-stepper-header {
+      display: block;
+      align-items: center;
+    }
+  }
+  .highlight {
+    background-color: yellow;
+}

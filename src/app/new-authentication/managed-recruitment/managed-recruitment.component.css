@@ -1,0 +1,245 @@
+.managed-recruitment-containers{
+    margin-top: 70px;
+  
+   
+}
+.managed-heading{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    
+}
+.managed-heading>h1{
+  font-weight: 600;
+  font-size: 40px;
+ letter-spacing: 1px;
+}
+.managed-heading>h1>samp{
+    color: #019EFF;
+}
+.animate-icon-containers{
+    /* border: 1px solid rgb(0, 255, 157); */
+   position: relative;
+}
+.Line_img {
+    /* border: 1px solid; */
+    background: url(../image/line.png) no-repeat;
+    background-size: 720px 170px;
+    background-position: center, center;
+    height: 200px;
+    position: absolute;
+    width: 90%;
+    left: 133px;
+    top: 204px;
+}
+.animate-icon{
+    
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:space-between;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    height: 500px;
+    margin-top: 50px;
+    position: relative;
+  
+   
+    
+    
+}
+
+.animate-icon1{
+   
+    width: 8%;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 200px;
+    margin-top: 50px;
+    background: url(../image/icon2.png) no-repeat #FFC001;
+    background-size: 39px 39px;
+    background-position: center center;
+    transition: 0.6s ease-in-out;
+    animation: rotate  3s linear infinite ;
+   
+}
+
+
+
+.animate-icon2 {
+    
+    width: 10%;
+    height: 130px;
+    border-radius: 50%;
+    transition: 0.6s ease-in-out;
+    margin-top: 200px;
+    margin-right: 170px;
+    animation: rotate 3s linear infinite;
+     background: url(../image/icon1.png) no-repeat #FF1479;
+     background-size: 60px 50px;
+     background-position: center center;
+      border-radius: 50%;
+     transition: 0.6s ease-in-out;
+}
+ .animate-icon3 {
+    width: 45%;
+    height: 478px;
+    position: relative;
+    margin-left: 40px;
+    margin-top: 70px;
+    background: url(../image/logo\ Blue.png) no-repeat;
+    background-size: 470px 470px;
+    background-position: center center;
+    transition: 0.6s ease-in-out;
+    border-radius: 50%;
+    
+} 
+.animate-icon-content{
+   position:absolute;
+    font-size: 17px;
+    /* width: 45%;
+    top: 120px;
+    left: 130px; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: #ffff;
+    /* border: 1px solid; */
+    width: 50%;
+    top: 120px;
+    right: 160px;
+    border-top-right-radius: 70px;
+    border-bottom-right-radius: 80px;
+}
+.ball {
+    position: absolute;
+    background-color: #019EFF;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    /* left: 480px; */
+    /* top: 200px; */
+    left: 460px;
+    top: 120px;
+    animation: ball 3s linear infinite;
+   }
+
+.animate-icon-content>h5{
+    font-size: 15px;
+    font-weight: 600;
+    color: #019EFF;
+}
+    
+.animate-icon2:hover {
+    margin-left: 170px;
+    width: 26%;
+    height: 320px;
+    animation: none;
+}
+
+.animate-icon1:hover {
+     width: 26%;
+    height: 320px;
+    animation: none;
+    
+}
+
+
+
+
+
+.animate-icon2:hover+.animate-icon3 {
+    width: 8%;
+    height: 110px;
+    background: #019EFF;
+    border-radius: 50%;
+    margin-left: 200px;
+   .animate-icon-content{
+    display: none;
+    
+   }
+   .animate-icon-content>h5 {
+      display: none;
+   }
+}
+.animate-icon1:hover+.animate-icon2{
+    width: 10%;
+    height: 130px;
+    background-size: 40px 30px;
+    transition: 4s ease-in-out;
+    position: absolute;
+    left: 590px;
+}
+
+.animate-icon1:hover~.animate-icon3 {
+    width: 10%;
+     height: 130px;
+    background:#019EFF ;
+    border-radius: 50%;
+   margin-left: 200px;
+   
+   
+  
+.animate-icon-content {
+    display: none;
+
+   }
+.animate-icon-content>h5{
+    font-size: 0px;
+}
+}
+
+
+@keyframes rotate {
+    0% {transform: rotate(0deg);}
+    25% { transform: rotate(20deg);}
+    50% {transform: rotate(0deg);}
+    75% {transform: rotate(-20deg); }
+    
+}
+
+
+
+@keyframes ball {
+    
+   0%{
+        left: 470px;
+        top: 120px
+   }
+   35% {
+       left: 670px;
+       top: 230px;
+       height: 60px;
+       width: 60px;
+       background-color: #FF1479;
+       
+   }
+   75% {
+         left: 935px;
+          top: 200px;
+          background-color: #FFC001;
+        }
+
+
+}
+@media (max-width: 412px){
+.managed-heading {
+   
+    width: 95%;
+    margin: auto;
+   
+}
+.managed-heading>h1{
+  text-align: center;
+  font-size: 20px;
+}
+.animate-icon-containers    {
+    border: 1px solid red;
+    display:none;
+}
+}
+
+
+
+

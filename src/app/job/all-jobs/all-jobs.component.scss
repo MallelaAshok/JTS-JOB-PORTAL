@@ -1,0 +1,39 @@
+.postJobBtn {
+  text-align: right;
+  margin-bottom: 1.5em;
+}
+.job-detail-view {
+  cursor: pointer;
+}
+
+.planSection {
+  padding: 10px;
+  .btn-plan {
+    color: white;
+    background: #be8c38;
+  }
+  border-radius: 10px;
+
+  background: #fef4e4;
+  p {
+    margin-top: 1em;
+    color: #d29c40;
+  }
+}
+
+.all_jobs .card-body p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: unset;
+}
+
+.renewPlanSection {
+  padding: 10px;
+  border-radius: 10px;
+
+  background: rgb(235, 243, 254);
+  p {
+    margin-top: 1em;
+    color: rgb(23, 43, 77);
+  }
+}

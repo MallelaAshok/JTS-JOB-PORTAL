@@ -1,0 +1,141 @@
+
+.banner-img{
+    margin-top: 10px;
+}
+.company-title-info{
+    margin-top: 10px;
+}
+.company-profile-img{
+    margin-top: 5px;
+}
+
+.font-16{
+    font-size: 16px;
+
+}
+.bg-error{
+  background-color: transparent;
+  color: red;
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 160px
+}
+
+.img-ad-banner{
+  width:330px;
+}
+
+.f-right {
+    float: right;
+  }
+  .mr-3 {
+    margin-right: 2em;
+  }
+  .mr-2 {
+    margin-right: 1em;
+  }
+  .pt-4 {
+    padding-top: 1rem;
+  }
+
+  .searchDrop {
+    border-radius: 3px;
+    border-color: #ccc;
+    padding: 5px 7px;
+    width: 200px;
+  }
+ 
+
+  .candidate-detail {
+    border-radius: 10px;
+    padding: 1.2em 1em;
+   
+    box-shadow: 0 0.46875rem 2.1875rem #5a61691a, 0 0.9375rem 1.40625rem #5a61691a, 0 0.25rem 0.53125rem #5a61691f, 0 0.125rem 0.1875rem #5a61691a;
+  }
+
+  .filterSection {
+    border: 1px solid #ccc;
+  }
+  .viewResume {
+    display: inline-flex;
+  
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    line-height: 1.75;
+    border-radius: 4px;
+  
+    color: rgb(31, 130, 104);
+    min-width: max-content;
+    /* font-family: In ter; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: none;
+    letter-spacing: normal;
+    text-transform: none;
+    height: 32px;
+    padding: 0px 16px;
+    float: right;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  .btn-outline {
+    color:#019EFF;
+    border: 1px solid #019EFF;
+  }
+  .ml-0\.3 {
+    margin-left: 0.3em;
+  }
+  .candidate_name {
+    margin: 0px;
+    color: rgb(23, 43, 77);
+    font-size: 16px;
+    /* font-family: Inter; */
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .job-desc{
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0px!important;
+  }
+  .btn-view{
+    border-radius: 10px 0px 10px 0px;
+   float: right;
+    margin-right: -37px;
+    margin-bottom: -16px;
+ width: 100px;
+  }
+
+  ul {
+    list-style: none;
+    display: table;
+  }
+  
+  li {
+    display: table-row;
+    color: #565656;
+  }
+  
+ 
+  .job-info{
+
+    width: 100%;
+  }
+  .job-info b {
+    color: #000;
+    display: inline-block;
+    width: 50%;
+    position: relative;
+    padding-right: 12px; /* Ensures colon does not overlay the text */
+  }
+  
+  .job-info b::after {
+    content: ":";
+    position: absolute;
+    right: 10px;
+  }

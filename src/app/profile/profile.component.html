@@ -1,0 +1,213 @@
+<section class="main-content">
+  <ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+      <h5 class="page-title m-b-0">Profile</h5>
+    </li>
+  </ul>
+  <div class="section-body">
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="card">
+          <!-- <div class="card-header">
+                      <button type="button" class="btn-primary f-right">Edit</button>
+                  </div> -->
+
+
+          <div class="card-body">
+            <div style="text-align: center;
+            position: relative;
+            border-radius: 50%;
+            width: 170px;
+            overflow: hidden;
+            margin-left: 420px;">
+              <img src="../../assets/images/banner/company-profile.png" class="imgprofile">
+              <div style="    width: 100%;top: 122px;position: absolute;background: #f8f5f58a;height: 52px"
+                (click)="image.click()">
+                <i style="color: blue; font-size: 26px;" class="bi bi-camera"></i>
+                <input type="file" style="display: none;" (change)="uploadimage($event)" #image accept="image/*" />
+              </div>
+            </div>
+            <form class="register-form m-4" [formGroup]="register" (ngSubmit)="onRegister()">
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label>Company Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="ABC Technologies Pvt Ltd"
+                    formControlName="companyname" required>
+                  <!-- @if (!register.get('first')?.valid && register.get('first')?.touched) {
+                                  <small class="form-text text-danger">Please
+                                      enter a first name!</small>
+                                  } -->
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label>Email<span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" placeholder="abc@email.com" formControlName="email" required>
+                  <!-- @if (!register.get('email')?.valid && (register.get('email')?.dirty ||
+                                  register.get('email')?.touched)) {
+                                  <small class="form-text text-danger">
+                                      Enter velid email address!</small>
+                                  } -->
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label>Website<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="www.email.com" formControlName="website"
+                    required>
+                  <!-- @if (!register.get('email')?.valid && (register.get('email')?.dirty ||
+                                register.get('email')?.touched)) {
+                                <small class="form-text text-danger">
+                                    Enter velid email address!</small>
+                                } -->
+                </div>
+              </div>
+
+              <div class="row">
+                <!-- <div class="form-group col-md-6">
+                  <label>Founded Date<span class="text-danger">*</span></label>
+                  <input type="date" class="form-control" placeholder="9597654671" formControlName="contactnumber"
+                    required>
+
+                </div> -->
+                <div class="form-group col-md-6">
+                  <label>Company Size<span class="text-danger">*</span></label>
+                  <select class="form-select form-control" formControlName="companysize" required>
+
+                    <option>1-10</option>
+                    <option>11-50</option>
+                    <option>51-100</option>
+                    <option>100-500</option>
+                    <option>500+</option>
+
+                  </select>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label>Contact Number<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="9597654671" formControlName="contactnumber"
+                    required>
+
+                </div>
+                <div class="form-group col-md-6">
+                  <label>GST Number<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="BTIPM9594E" formControlName="gstnumber" required>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label>About Company<span class="text-danger"></span></label>
+                  <textarea type="textitem" class="form-control" placeholder="Summary about company"
+                    formControlName="aboutcompany"></textarea>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+      <h5 class="page-title m-b-0">Address & Location</h5>
+    </li>
+  </ul>
+  <div class="section-body">
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="card">
+          <!-- <div class="card-header">
+                      <button type="button" class="btn-primary f-right">Edit</button>
+                  </div> -->
+          <div class="card-body">
+            <form class="register-form m-4" [formGroup]="register" (ngSubmit)="onRegister()">
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label>Address <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="" formControlName="address" required>
+                  <!-- @if (!register.get('first')?.valid && register.get('first')?.touched) {
+                                  <small class="form-text text-danger">Please
+                                      enter a first name!</small>
+                                  } -->
+                </div>
+
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label>Country<span class="text-danger">*</span></label>
+                  <select class="form-select form-control" formControlName="country" required>
+
+                    <option>India</option>
+                    <option>Dubai</option>
+
+                  </select>
+
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label>City<span class="text-danger">*</span></label>
+                  <select class="form-select form-control" formControlName="city" required>
+
+                    <option>Bengaluru</option>
+                    <option>Chennai</option>
+
+                  </select>
+
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label>State<span class="text-danger">*</span></label>
+                  <select class="form-select form-control" formControlName="state" required>
+
+                    <option>Tamilnadu</option>
+                    <option>Karnataka</option>
+
+                  </select>
+
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label>Zip Code<span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" placeholder="9597654671" formControlName="zipcode" required>
+
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <label>Map Location<span class="text-danger">*</span></label>
+
+
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="form-group col-md-12">
+
+                  <textarea type="textitem" class="form-control" placeholder="Google Map Location"
+                    formControlName="aboutcompany"></textarea>
+                </div>
+              </div>
+              <div *ngIf="error" class="bg-error mb-3">
+                Please Fill all the fields Correctly
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                  <button class="btn btn-primary msr-3 btn-save">Save</button>
+                  <button class="btn btn-outline btn-cancel">Cancel</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

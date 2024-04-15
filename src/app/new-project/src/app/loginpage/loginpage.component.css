@@ -1,0 +1,349 @@
+.login-page-main {
+    background: linear-gradient(to right, #FF98C4, #FF1479);
+    height: 680px;
+    position: relative;
+}
+.login-homepage-main{
+     background: linear-gradient(to  top right , #95D6FF,#FFEDA4, #FF1479);
+     height: 680px;
+     position: relative;
+     
+}
+.main{
+    position: relative;
+}
+
+nav {
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 35px;
+    padding-bottom: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    /* margin-top: 20px; */
+    /* border: 1px solid rgb(85, 0, 255); */
+
+}
+
+.Logo {
+    margin-left: 6%;
+    width: 12%;
+    height: 50px;
+    background: url(../image/logow.png) no-repeat;
+    background-position: center center;
+    background-size: 130px 50px;
+}
+
+.Logohome{
+    margin-left: 6%;
+    width: 12%;
+    height: 50px;
+     background: url(../image/logo.png) no-repeat;
+    background-position: center center;
+    background-size: 130px 50px;
+}
+
+
+.nave-item {
+    display: flex;
+    width: 40%;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 50px;
+    margin-right: 80px;
+    font-size: 15px;
+    font-weight: 500;
+    /* border: 1px solid rgb(85, 0, 255); */
+}
+
+.nave-item>button {
+    padding: 11px 30px;
+    font-size: 12px;
+    background-color: #019EFF;
+    border: none;
+    border-radius: 8px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+.login-container{
+    display: flex;
+    justify-content: space-between;
+    color: #ffff;
+    
+}
+.login-container-right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 500px;
+    align-items: center;
+    justify-content: center;
+   
+}
+.container-right-content{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    row-gap: 20px;
+    margin-left: 40px;
+    /* border: 1px solid rgb(85, 0, 255); */
+
+}
+.container-right-content>h1{
+   font-size: 40px;
+   font-weight: 540;
+}
+.container-right-content>p{
+    font-size: 15px;
+    font-weight: 400;
+}
+.container-lift-content{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   
+}
+.login-form{
+    width: 63%;
+    box-shadow: 0px 1px 30px 4px #0000001A ;
+    border-radius: 10px;
+    background: linear-gradient(to bottom ,#FF3F91,#992657 );
+    height: 400px;
+}
+
+.login-form-header{
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 450;
+    margin:  20px auto;
+    padding: 10px;
+    width: 75%;
+    position: relative;
+}
+.login-form-header>p{
+    cursor: pointer;
+}
+.login-input-container{
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    row-gap: 30px;
+    width: 85%;
+    position: relative;
+    
+   
+  
+}
+.login-input-container>input{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 1px solid #dad7d7;
+    padding: 10px;
+    color: #ffff;
+   
+    
+}
+.login-input-container>input::placeholder{
+    color: #FF73AF;
+}
+.login-input-container>label{
+    position: absolute;
+    right: 0px;
+    bottom: -30px;
+    font-size: 11px;
+    color:#FFFFFF;
+    cursor: pointer;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    /* padding-bottom: 40px; */
+    margin-top: 70px;
+
+    
+}
+.btn>button{
+   background: #FF5DA3;
+   color: #FFFFFF;
+   border: none;
+   width: 75%;
+   padding: 15px;
+   border-radius: 25px;
+   cursor: pointer;
+   
+}
+.svg-wave{
+    position: absolute;
+    bottom:0px;
+   
+ 
+}
+#login-slide{
+    position: absolute;
+    border-radius: 8px;
+    width: 10%;
+    top: 35.5px;
+    left: 150px;
+    transition: 0.4s ease-in-out;
+}
+#book-heading:hover+#login-slide{
+  left: 235px;
+  border: 1px solid #fff;
+  width: 25%;
+  
+}
+#login-heading:hover~#login-slide{
+   left: 4px;
+   border: 1px solid #fff;  
+  width: 25%;
+}
+
+
+/* login-home-left */
+.login-home-left{
+    margin-top: 30px;
+    width: 83%;
+    height: 400px;
+    background: url(../image/cercelImg.png) no-repeat;
+    background-size: 500px 400px;
+    background-position: center center;
+   
+}
+.container-right-button{
+    margin-top: 20px;
+    width: 80%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    column-gap: 70px;
+    
+} 
+.container-right-button>p{
+     padding: 15px;
+     width: 40%;
+     border-radius: 6px;
+     border: none;
+     font-size: 20px;
+     font-weight: 500;
+     cursor: pointer;
+     text-align: center;
+}
+#get{
+    background: none;
+    border: 4px solid #ffff;
+    color: #ffff;
+        
+}
+#book{
+    background: white;
+    color: #FF1479;
+    
+}
+
+#get:hover{
+    background-color: white;
+    color: #FF1479;
+}
+#get:hover+#book{
+    background: none;
+    border: 2px solid #ffff;
+    color: #ffff;
+}
+
+@media (max-width: 412px) {
+    nav{
+       
+        /* border: 2px solid blue; */
+        padding-top: 0px;
+        padding-bottom: 0px;
+        color: #FFFFFF;
+         cursor: pointer;
+    }
+    .Logo,.Logohome {
+            background-size: 60px 30px;
+         }
+    
+     .nave-item{
+        width: 70%;
+        /* border: 1px solid rgb(0, 225, 255); */
+        margin-right: 0px;
+        justify-content: center;
+        gap: 10px;
+     }
+     .nave-item>p{
+        font-size: 12px;
+        /* border: 3px solid black; */
+     }
+     .nave-item>button{
+        padding: 3px;
+        font-size: 10px;
+
+     }
+     .login-container{
+        flex-direction: column;
+        row-gap: 0px;
+        /* border: 2px solid; */
+     }
+     .login-container-right{
+        /* border: 2px solid rgb(16, 16, 213); */
+        height: 150px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+     }
+     .container-right-content{
+        /* border: 2px solid black; */
+        margin-top: 30px;
+        margin-left: 0px;
+        text-align: center;
+        width: 100%;
+        
+     }
+         .container-right-content>h1 {
+             font-size: 21px;
+             font-weight: 440;
+         }
+    
+         .container-right-content>p {
+             font-size: 12px;
+             font-weight: 400;
+         }
+    .container-lift-content{
+        /* border: 2px solid blue; */
+        width: 100%;
+        margin-top: 20px;
+    }
+    .login-form{
+        /* border: 2px solid green; */
+        width: 90%;
+    }
+        .container-right-button {
+            /* border: 1px solid red; */
+            gap: 15px;
+            width: 100%;
+        }
+    .container-right-button>p{
+        /* border: 1px solid red ; */
+        padding: 10px;
+        font-size: 11px;
+        width: 30%;
+        margin-top: 20px;
+        
+    }
+    .login-home-left{
+         margin-top: 70px;
+        background-size: 300px 250px;
+        height: 50vh;
+        width: 100%;
+    }
+}
+

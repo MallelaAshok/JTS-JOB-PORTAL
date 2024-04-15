@@ -1,0 +1,508 @@
+<section class="main-content">
+  <ul class="breadcrumb breadcrumb-style"></ul>
+  <div class="section-body">
+    <!-- <div class="row">
+        <div class="col-md-12 col-lg-6 col-xl-6 ">
+          <div class="card">
+            <div class="card-header">
+              <h4>Chart Sample</h4>
+            </div>
+            <div class="card-body">
+              <apx-chart [series]="lineChartOptions.series!" [chart]="lineChartOptions.chart!"
+                [xaxis]="lineChartOptions.xaxis!" [stroke]="lineChartOptions.stroke!" [colors]="lineChartOptions.colors!"
+                [dataLabels]="lineChartOptions.dataLabels!" [legend]="lineChartOptions.legend!"
+                [tooltip]="lineChartOptions.tooltip!" [markers]="lineChartOptions.markers!"
+                [grid]="lineChartOptions.grid!" [yaxis]="lineChartOptions.yaxis!" [title]="lineChartOptions.title!"
+                [fill]="lineChartOptions.fill!">
+              </apx-chart>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-6 col-xl-6 ">
+          <div class="card">
+            <div class="card-header">
+              <h4>Chart Sample</h4>
+            </div>
+            <div class="card-body">
+              <apx-chart [series]="barChartOptions.series!" [chart]="barChartOptions.chart!"
+                [dataLabels]="barChartOptions.dataLabels!" [stroke]="barChartOptions.stroke!"
+                [colors]="barChartOptions.colors!" [title]="barChartOptions.title!" [grid]="barChartOptions.grid!"
+                [tooltip]="barChartOptions.tooltip!" [plotOptions]="barChartOptions.plotOptions!"
+                [yaxis]="barChartOptions.yaxis!" [xaxis]="barChartOptions.xaxis!"></apx-chart>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+    <div class="row mb-3">
+      <div class="col-8">
+        <h4>{{jobtitle(authService.EmpJobsListData()?.completed)}}</h4>
+      </div>
+
+      <div class="col-4">
+        <div class="f-right">
+
+          <span><select class="searchDrop">
+              <option>Job Applicants</option>
+              <option>Rejected</option>
+              <option>Shortlisted</option>
+            </select></span>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+        <div *ngIf="authService?.jobListData()">
+          <div class="card-body" *ngFor="let job of authService?.jobListData()?.data">
+
+            <!-- <ng-scrollbar style="height: 570px" visibility="hover"> -->
+            <div class="list">
+              <div class="candidate-detail">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <div class="company-profile-img">
+                          <img src="https://sktexus.com/seekk_api/assets/api/images/{{job?.user_avatar}}" style="width: 75px;
+                          border-radius: 50%;
+                          height: 75px;
+                          object-fit: cover;" alt="" />
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="company-title-info">
+                          <span class="candidate_name">{{job?.first_name}} {{job?.last_name}}</span>
+                        </div>
+                        <div>
+                          <span class="preview">
+                            <span>{{binddata(job)}} &nbsp; | &nbsp; {{job?.age}} &nbsp;|&nbsp; {{job?.city}}
+                              &nbsp;|&nbsp;
+                              {{job?.locationname}} &nbsp;
+                              <!-- |&nbsp;
+                              Graduate -->
+                            </span>
+                            <!-- <span> {{job?.qualification}} | {{job?.location_type_name}} | {{job?.wh_city}}</span> -->
+                          </span>
+                        </div>
+                        <div>
+                          <span class="preview">
+                            <span>{{job?.skills}} &nbsp; ||&nbsp; {{job?.total_experience_year}}
+                              {{job?.total_experience_month}} &nbsp; ||&nbsp;
+                              {{job?.current_salary}}</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-4">
+                      <button (click)="navigate('/candidates/candidate-detail',job)"
+                        class="btn btn-primary btn-view">View</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- </ng-scrollbar> -->
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+        <div class="card">
+          <div class="card-header">
+            <h4>Filter by</h4>
+          </div>
+          <!-- <div class="card-body">
+                        <div class="doc-file-type">
+                            <ng-scrollbar style="height: 570px" visibility="hover">
+                                <ul class="list-unstyled">
+                                    <li class="d-flex" style="margin-top: 100px">
+                                        <div class="set-flex">
+                                            <h5 class="font-16 mb-3 text-center">Filter will place here</h5>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </ng-scrollbar>
+                        </div>
+                    </div> -->
+          <!--Acc 1-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton>Experience</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div style="display: inline-flex;">
+                      <ng-select [items]="experience" bindLabel="name" bindValue="id" placeholder="Min"
+                        style="width: 150px;">
+
+                      </ng-select> &nbsp; <span style="margin-top: 2px;"> - </span> &nbsp;
+                      <ng-select [items]="experience" placeholder="Max" style="width: 150px;" bindLabel="name"
+                        bindValue="id">
+
+                      </ng-select>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!--Acc 2-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Salary</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    Salary Details:
+                    <div style="display: inline-flex;">
+                      <input type="text" class="form-control" style="width: 150px;height: 35px;" placeholder="Min">
+                      &nbsp; -
+                      &nbsp; <input class="form-control" style="width: 150px;height: 35px;" type="text"
+                        placeholder="Max">
+                    </div>
+
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 3-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Location</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    Location details:
+                    <div>
+                      <p>
+                        &nbsp;
+                        <label
+                          style="padding-left: 10px;top:5px;border: 1px solid gray; border-radius: 50px;position: relative;left: 5px;">
+
+                          WIthIn 5 Kms (1) &nbsp;
+                        </label>
+
+                      </p>
+                    </div>
+
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 4-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Job Type</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div>
+                      <p>
+                        &nbsp;
+                        <label
+                          style="padding-left: 10px;top:5px;border: 1px solid gray; border-radius: 50px;position: relative;left: 5px;">
+
+                          Full Time &nbsp;
+                        </label>
+
+                      </p>
+                      <!-- <label style="width: 150px;" class="selectgroup-item">
+                        <input type="checkbox" class="selectgroup-input-checkbox" class="form-control">
+                        <span class="selectgroup-button">Full Time</span>
+                      </label> -->
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 5-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Employment</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div>
+                      <p>
+                        &nbsp;
+                        <label
+                          style="padding-left: 10px;top:5px;border: 1px solid gray; border-radius: 50px;position: relative;left: 5px;">
+
+                          Yet to Added &nbsp;
+                        </label>
+
+                      </p>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 6-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Education</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" style="border: 1px solid gray"
+                        id="flexCheckChecked">
+                      <label class="form-check-label" for="flexCheckChecked">
+                        Graduate (67)
+                      </label>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 7-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Skills</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div>
+                      <div>
+                        <p>
+                          &nbsp;
+                          <label
+                            style="padding-left: 10px;top:5px;border: 1px solid gray; border-radius: 50px;position: relative;left: 5px;">Java
+                            Script &plus; &nbsp;
+                          </label>
+                        </p>
+                      </div>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 8-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Languages</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <ng-multiselect-dropdown [placeholder]="'Languages'" [settings]="dropdownSettings"
+                      [data]="LandropdownList">
+                      <!-- [(ngModel)]="selectedItems"
+                    (onSelect)="onItemSelect($event)"
+                    (onSelectAll)="onSelectAll($event)" -->
+                    </ng-multiselect-dropdown>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 9-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Notice Period</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div>
+                      <p>
+                        &nbsp;
+                        <label
+                          style="padding-left: 10px;top:5px;border: 1px solid gray; border-radius: 50px;position: relative;left: 5px;">
+
+                          Last 3 days &nbsp;
+                        </label>
+
+                      </p>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 10-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Gender</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+
+                    <div>
+                      <p>
+                        &nbsp;
+                        <label
+                          style="padding-left: 10px;top:5px;border: 1px solid gray; border-radius: 50px;position: relative;left: 5px;">
+
+                          Male&nbsp;(101) &nbsp;&nbsp;
+                        </label>
+
+                      </p>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 11-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Age</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div style="display: inline-flex;">
+                      <ng-select [items]="age" bindLabel="name" bindValue="id" placeholder="Min Age"
+                        style="width: 150px;">
+
+                      </ng-select> &nbsp; <span style="margin-top: 2px;"> - </span> &nbsp;
+                      <ng-select [items]="age" placeholder="Max Age" style="width: 150px;" bindLabel="name"
+                        bindValue="id">
+
+                      </ng-select>
+                    </div>
+
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 12-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Industry</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div>
+                      <ng-multiselect-dropdown [placeholder]="'Industry'" [settings]="dropdownSettings"
+                        [data]="dropdownList">
+                        <!-- [(ngModel)]="selectedItems"
+                        (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)" -->
+                      </ng-multiselect-dropdown>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 13-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Department</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div>
+                      <ng-select [items]="department" placeholder="Department" bindLabel="name" bindValue="id">
+
+                      </ng-select>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 14-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Candidate Performance</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div>
+                      <p>
+                        &nbsp;
+                        <label
+                          style="padding-left: 10px;top:5px;border: 1px solid gray; border-radius: 50px;position: relative;left: 5px;">
+
+                          Male &nbsp;(101) &nbsp;&nbsp;
+                        </label>
+
+                      </p>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Acc 15-->
+          <div ngbAccordion>
+            <div ngbAccordionItem [collapsed]="true">
+              <h2 ngbAccordionHeader>
+                <button ngbAccordionButton class="btn-acc">Communication Level</button>
+              </h2>
+              <div ngbAccordionCollapse>
+                <div ngbAccordionBody>
+                  <ng-template>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" style="border: 1px solid gray"
+                        id="flexCheckChecked1">
+                      <label class="form-check-label" for="flexCheckChecked1">
+                        Good English(67)
+                      </label>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

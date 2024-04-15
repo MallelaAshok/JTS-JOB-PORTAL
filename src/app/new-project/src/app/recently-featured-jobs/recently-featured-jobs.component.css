@@ -1,0 +1,141 @@
+.recently-featured-jobs{
+
+}
+.recently-featured-jobs-main{
+    margin-top: 30px;
+}
+
+.recently-featured-jobs-heading{
+    font-size: 35px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+#popular-boder {
+    border-bottom: 5px solid;
+    border-image: linear-gradient(to right, #998BFF, #019EFF);
+    border-image-slice: 01;
+    padding: 3px 15px;
+    width: 10%;
+
+}
+.recently-featured-jobs-content{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin:60px auto;
+}
+.jobs-right{
+    width: 50%;
+    /* border: 2px solid black; */
+    position: relative;
+    
+}
+.jobs-right-image{
+    /* border: 1px solid red; */
+    height: 600px   ;
+    background: url(../image/phone.png) no-repeat;
+    background-position: center center;
+    background-size: 500px 550px;
+    
+
+}
+.jobs-left-list{
+    width: 50%;
+    overflow: auto;
+    height: 520px;
+   
+   
+}
+.jobs-left-list::-webkit-scrollbar{
+    border: none;
+}
+.jobs-left{
+    
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+   }
+.job-items{
+    background-color:#65baf0;
+    width: 33%;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    padding: 10px 0px 30px 10px;
+    
+    
+}
+#job-titel{
+  font-size: 12px;
+  font-weight: 500;
+} 
+#job-tybe{
+font-size: 9px;
+} 
+#location{
+font-size: 7px;
+
+}
+
+.highlights{
+    width: 40%;
+    padding-left: 20px;
+}
+
+#highlights-one{
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    background: #7ad9ff;
+}
+#highlights-two{
+    position: absolute;
+    top: 250px;
+    left: 0px;
+    background:#FFEDA4;
+}
+#highlights-three {
+    position: absolute;
+    top: 350px;
+    right: 30px;
+    background: #FF74B0;
+}
+
+
+@media (max-width: 412px){
+    .recently-featured-jobs-heading {
+            font-size: 22px;
+    }
+   #popular-boder {
+          width: 25%;
+          padding: 8px 15px;
+      }
+  .recently-featured-jobs-content{
+   flex-direction: column;
+  }
+  .jobs-left-list {
+      width: 100%;
+    }
+  .jobs-left {
+          justify-content: center;
+        }
+   .jobs-right{
+         width: 100%;
+        }
+    .jobs-right-image{
+      background-size: 350px 400px;
+      height: 500px;
+      }
+      .job-items{
+         width: 40%;
+        height: 40px;
+      }
+
+}

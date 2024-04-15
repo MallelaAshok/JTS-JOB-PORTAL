@@ -1,0 +1,148 @@
+<main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+  <div class="container reg-form-bg">
+    <div class="card reg-card mb-0">
+      <div class="row no-gutters">
+        <div class="brand-wrapper">
+          <img src="assets/images/logo.png" alt="logo" class="logo" />
+        </div>
+        <div class="col-md-5 register-img">
+          <img src="assets/images/register-bg.png" alt="login" class="reg-card-img" />
+        </div>
+        <div class="col-md-7">
+          <div class="login-body">
+            <div class="text-center">
+
+            </div>
+            <!-- <form class="validate-form" [formGroup]="SignUpForm" (ngSubmit)="onSubmit()" (click)="getIndustry()"> -->
+              <form class="validate-form" [formGroup]="SignUpForm" (ngSubmit)="onSubmit()" >
+              <div class="row">
+                <div class="col-lg-12 ">
+                  <div class="form-group position-relative">
+                    <label>Organization Name</label>
+                    <input type="text"
+                      [ngClass]="(SignUpFormControl.company_name.touched && !SignUpFormControl.company_name.valid)?'form-control is-invalid':'form-control'"
+                      formControlName="company_name" placeholder="Your Organization Name" />
+                    <div class="invalid-feedback"
+                      *ngIf="SignUpFormControl.company_name.touched && !SignUpFormControl.company_name.valid">
+                      Provide Organization Name</div>
+                  </div>
+
+                  <div class="form-group position-relative">
+                    <label>Industry</label>
+                    <select
+                      [ngClass]="(SignUpFormControl.industry.touched && !SignUpFormControl.industry.valid)?'form-select form-control is-invalid':'form-select form-control'"
+                      formControlName="industry">
+                      <!-- <option *ngFor="let ind of authService.IndustryData()" [value]="ind.id">{{ind.industry_name}} -->
+                      <option hidden value="" disabled selected>Select Industry </option>
+                      <option *ngFor="let ind of authService.IndustryData()" [value]="ind.id"
+                        placeholder="Select Industry">{{ind.industry_name}}
+                      </option>
+                    </select>
+                    <div class="invalid-feedback"
+                      *ngIf="SignUpFormControl.industry.touched && !SignUpFormControl.industry.valid">Provide Industry Name</div>
+                  </div>
+
+                  <div class="form-group position-relative">
+                    <label>Organization Website</label>
+                    <input type="text"
+                      [ngClass]="(SignUpFormControl.website.touched && !SignUpFormControl.website.valid)?'form-control is-invalid':'form-control'"
+                      formControlName="website" placeholder="Your Organization Website" />
+                    <div class="invalid-feedback"
+                      *ngIf="SignUpFormControl.website.touched && !SignUpFormControl.website.valid">Provide Oranization Website
+                      </div>
+                  </div>
+
+                  <div class="form-group position-relative">
+                    <label>Organization Description</label>
+                    <input type="text"
+                      [ngClass]="(SignUpFormControl.company_des.touched && !SignUpFormControl.company_des.valid)?'form-control is-invalid':'form-control'"
+                      formControlName="company_des" placeholder="Short Description" />
+                    <div class="invalid-feedback"
+                      *ngIf="SignUpFormControl.company_des.touched && !SignUpFormControl.company_des.valid">Provide Short Description
+                      </div>
+                  </div>
+
+                  <div class="form-group position-relative">
+                    <label>Company Size</label>
+                    <select
+                      [ngClass]="(SignUpFormControl.company_size.touched && !SignUpFormControl.company_size.valid)?'form-select form-control is-invalid':'form-select form-control'"
+                      formControlName="company_size">
+                      <option hidden value="" disabled selected>Select Organization Size </option>
+                      <option *ngFor="let size of compSize" [value]="size.Csize">{{size.Csize}}
+                      </option>
+                    </select>
+                    <div class="invalid-feedback"
+                      *ngIf="SignUpFormControl.company_size.touched && !SignUpFormControl.company_size.valid">Provide Organization Size
+                      </div>
+                  </div>
+
+                  <div class="form-group position-relative">
+                    <label>Contact Person</label>
+                    <input type="text"
+                      [ngClass]="(SignUpFormControl.contact_person.touched && !SignUpFormControl.contact_person.valid)?'form-control is-invalid':'form-control'"
+                      formControlName="contact_person" placeholder="Contact Person Name" />
+                    <div class="invalid-feedback"
+                      *ngIf="SignUpFormControl.contact_person.touched && !SignUpFormControl.contact_person.valid">Organization Contact Person</div>
+                  </div>
+
+                  <div class="form-group position-relative">
+                    <label>Designation</label>
+                    <input type="text"
+                      [ngClass]="(SignUpFormControl.designation.touched && !SignUpFormControl.designation.valid)?'form-control is-invalid':'form-control'"
+                      formControlName="designation" placeholder="Your Designation" />
+                    <div class="invalid-feedback"
+                      *ngIf="SignUpFormControl.designation.touched && !SignUpFormControl.designation.valid">Provide Designation
+                      </div>
+                  </div>
+
+                  <div class="form-group position-relative">
+                    <label>Organization Email</label>
+                    <input type="email"
+                      [ngClass]="(SignUpFormControl.email.touched && !SignUpFormControl.email.valid)?'form-control is-invalid':'form-control'"
+                      formControlName="email" placeholder="Provide Organization Email" />
+                    <div class="invalid-feedback"
+                      *ngIf="SignUpFormControl.email.touched && !SignUpFormControl.email.valid">Provide Valid Email</div>
+                  </div>
+
+                  <div class="form-group position-relative">
+                    <label>Registered Address</label>
+                    <input type="text" class="form-control"
+                      [ngClass]="(SignUpFormControl.reg_address.touched && !SignUpFormControl.reg_address.valid)?'form-control is-invalid':'form-control'"
+                      formControlName="reg_address" placeholder="Address Info" />
+                    <div class="invalid-feedback"
+                      *ngIf="SignUpFormControl.reg_address.touched && !SignUpFormControl.reg_address.valid">Provide Address Information</div>
+                  </div>
+
+                  <div class="form-group position-relative">
+                    <label>Organization GST Number</label>
+                    <input type="text" class="form-control"
+                      [ngClass]="(SignUpFormControl.gst.touched && !SignUpFormControl.gst.valid)?'form-control is-invalid':'form-control'"
+                      formControlName="gst" placeholder="Your Oranization GST" />
+                    <div class="invalid-feedback" *ngIf="SignUpFormControl.gst.touched && !SignUpFormControl.gst.valid">
+                      Please enter GST in correct Format,should be 15 alphanumeric letters</div>
+                  </div>
+                </div>
+
+                <div *ngIf="error" class="error-display mb-3">
+                  {{ error }}
+                </div>
+                <div class="col-lg-12 mb-0">
+                  <button class="btn btn-primary auth-form-btn" type="submit">
+                    <a class="text-dark fw-bold">Register</a>
+                  </button>
+                </div>
+
+                <!-- <div class="col-12 text-center">
+              <p class="mb-0 mt-3">
+                <small class="text-dark msr-2">Don't have an account ?</small>
+                <a routerLink="/authentication/signup" class="text-dark fw-bold"
+                  >Sign Up</a
+                >
+              </p>
+            </div> -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>

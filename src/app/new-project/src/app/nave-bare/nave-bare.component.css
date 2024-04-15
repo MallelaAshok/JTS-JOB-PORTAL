@@ -1,0 +1,38 @@
+.nave-bare{
+   
+}
+.nave-bare>nav{
+    background: linear-gradient(to right, #FF98C4, #FF1479);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 35px;
+    padding-bottom: 10px;
+    color:#FFFFFF ;
+    cursor: pointer;
+  
+}
+.Logo{
+     margin-left: 6%;
+    font-size: 22px;
+    font-weight: 800px;
+}
+.nave-item{
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 60px;
+    margin-right: 80px;
+    font-size: 17px;
+    font-weight: 500;
+}
+.nave-item>button{
+    padding: 12px 35px;
+    font-size: 12px;
+    background-color: #019EFF;
+    border: none;
+    border-radius: 8px;
+    color: #FFFFFF;
+    cursor: pointer;
+}

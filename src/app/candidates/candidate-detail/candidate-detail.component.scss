@@ -1,0 +1,212 @@
+.profile{
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.profile img{
+    width: 200px;
+    height: 200px;
+}
+
+.profile-name{
+  margin-top: 5px;
+  margin-left: 0px;
+  font-weight: 600;
+  font-size: 20px;
+
+  width: 55%;
+  text-align: center;
+}
+.bg-error{
+  background-color: transparent;
+  color: red;
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 160px
+}
+
+.profile-icon{
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.download-icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.profile-info{
+    margin-left: 0px;
+    color: #000;
+}
+
+.profile-info-list  {
+    font-weight: 400;
+    margin-left: 0px;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 15px;
+    color: #000;
+}
+
+.skills{
+    margin-left: 35px;
+    list-style-type: none;
+}
+.education{
+    margin-top: 10px;
+    margin-left: 35px;
+    list-style-type: none;
+}
+
+.education-bg{
+    background-color: #F9F9F9;
+    border-radius: 20px;
+    padding: 5px;
+    font-weight: 400;
+    margin-left: 30px;
+    margin-top: 10px;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 15px;
+    color: #000;
+}
+
+.job-info{
+    margin-top: 10px;
+    margin-left: 7px;
+    width: 100%;
+    font-weight: 700;
+  }
+  .job-info b {
+    color: #000;
+    display: inline-block;
+    width: 40%;
+    position: relative;
+    padding-right: 12px; /* Ensures colon does not overlay the text */
+    font-weight: 100!important;
+  }
+  
+  .job-info b::after {
+    content: ":";
+    position: absolute;
+    right: 10px;
+  }
+
+  
+  ul {
+    list-style: none;
+    display: table;
+  }
+  
+.c-grey{
+    color: #505050;
+}
+.c-black{
+    color: #000;
+}
+
+.f-b{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.f-b-mb{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.pr-10{
+    padding-right: 10px;
+    font-size: 12px;
+
+}
+
+.searchDrop {
+    border-radius: 3px;
+    border-color: #ccc;
+    padding: 5px 7px;
+    width: 200px;
+    height: 40px;
+    margin-top: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+
+  .f-right {
+    float: right;
+  }
+
+  .resume-preview{
+    margin-top: 100px;
+    background-color: #F2F2F2;
+    width: 100%;
+    height: 600px;
+    border-radius: 15px;
+  }
+ .preview-text{
+    padding-top: 250px;
+    
+    text-align: center;
+ }
+
+ .d-resume{
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+    width: 200px;
+    height: 40px;
+    background-color: #b8afaf;
+    border:1px solid #b8afaf;
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+ }
+
+ .btn-update{
+    float: right;
+    margin-top: 10px;
+    margin-right: 25px;
+    border-radius: 8px;
+    width: 200px;
+    height: 40px;
+    background-color: #019EFF;
+    border:1px solid #019EFF;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+ }
+
+ #pdf-viewer {
+    width: 100%;
+    height: 100%; /* Adjust height as needed */
+  }
+  
+  /* Hide toolbar and other UI elements */
+  #pdf-viewer toolbar,
+  #pdf-viewer viewmenu,
+  #pdf-viewer scrollbars {
+    display: none;
+  }
+
+  #toolbar{
+    display: none;
+  }
+  
+  #iframe {
+    width: 100%;
+    height: 100vh;
+    border: none;
+  }
+  
+  ::ng-deep::-webkit-pdf-toolbar {
+    display: none !important;
+  }
+  
+  ::ng-deep::-webkit-scrollbar {
+    display: none !important;
+  }
+  

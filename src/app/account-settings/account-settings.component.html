@@ -1,0 +1,75 @@
+<section class="main-content">
+    <ul class="breadcrumb breadcrumb-style ">
+        <li class="breadcrumb-item">
+            <h5 class="page-title m-b-0">Account Settings</h5>
+        </li>
+       
+    </ul>
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <!-- <div class="card-header">
+                        <button type="button" class="btn-primary f-right">Edit</button>
+                    </div> -->
+                    <div class="card-body">
+                        <form class="register-form m-4" [formGroup]="register" (ngSubmit)="onRegister()">
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label>Company Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="ABC Technologies Pvt Ltd"
+                                        formControlName="first" required>
+                                    <!-- @if (!register.get('first')?.valid && register.get('first')?.touched) {
+                                    <small class="form-text text-danger">Please
+                                        enter a first name!</small>
+                                    } -->
+                                </div>
+                             
+                            </div>
+                     
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label>Email<span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" placeholder="abc@email.com" formControlName="emailname"
+                                        required>
+                                    <!-- @if (!register.get('email')?.valid && (register.get('email')?.dirty ||
+                                    register.get('email')?.touched)) {
+                                    <small class="form-text text-danger">
+                                        Enter velid email address!</small>
+                                    } -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label>Contact Number<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="9597654671" formControlName="contactnumber"
+                                        required>
+                           
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label>GST Number<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="BTIPM9594E" formControlName="gstnumber"
+                                        required>
+                           
+                                </div>
+                            </div>
+                            
+                        
+                         
+                      
+                            <div class="row">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                                  
+                                    <button class="btn btn-primary msr-3 btn-save" [disabled]="!register.valid">Submit</button>
+                                    <button class="btn btn-outline btn-cancel">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
