@@ -1,0 +1,379 @@
+<section class="main-content">
+	<ul class="breadcrumb breadcrumb-style ">
+		<div style="color:red; margin-left: 200px;font-size: large;" *ngIf="diabledhiretalent()">Admin Approval Pending.
+			Please Wait some
+			time.</div>
+	</ul>
+	<div class="section-body">
+		<div class="row ">
+			<div style="display: none;" class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="card">
+					<div class="card-statistic-4">
+						<div class="align-items-center justify-content-between">
+							<div class="row ">
+								<div class="col-lg-8 col-md-6 col-sm-6 col-xs-6 left-grid-spacing">
+									<div class="card-content">
+										<h5 class="font-20">1.7k</h5>
+										<h2 class="mb-3 font-16">Total Visitors</h2>
+
+									</div>
+
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 right-grid-spacing">
+									<div class="banner-img">
+										<img src="assets/images/banner/1.png" alt>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="display: none;" class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="card">
+					<div class="card-statistic-4">
+						<div class="align-items-center justify-content-between">
+							<div class="row ">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 left-grid-spacing">
+									<div class="card-content">
+										<h5 class="font-20">1.7k</h5>
+										<h2 class="mb-3 font-16">Shortlisted</h2>
+									</div>
+
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 right-grid-spacing">
+									<div class="banner-img">
+										<img src="assets/images/banner/1.png" alt>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="display: none;" class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="card">
+					<div class="card-statistic-4">
+						<div class="align-items-center justify-content-between">
+							<div class="row ">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 left-grid-spacing">
+									<div class="card-content">
+										<h5 class="font-20">1.7k</h5>
+										<h2 class="mb-3 font-16">Views</h2>
+
+									</div>
+
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 right-grid-spacing">
+									<div class="banner-img">
+										<img src="assets/images/banner/1.png" alt>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="display: none;" class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="card">
+					<div class="card-statistic-4">
+						<div class="align-items-center justify-content-between">
+							<div class="row ">
+								<div class="col-lg-8 col-md-6 col-sm-6 col-xs-6 left-grid-spacing">
+									<div class="card-content">
+										<h5 class="font-20">1.7k</h5>
+										<h2 class="mb-3 font-16">Applied Jobs</h2>
+
+									</div>
+
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 right-grid-spacing">
+									<div class="banner-img">
+										<img src="assets/images/banner/1.png" alt>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- JOB POST LIST -->
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8" style="position: relative;">
+				<div class="card" style="min-height: 75%;">
+					<div class="card-header">
+						<div class="col-8">
+							<h4>Job Posts</h4>
+						</div>
+
+						<div class="col-4">
+							<div class="f-right">
+								<span>
+									<select class="searchDrop" [formControl]="selctpost">
+										<option value="0">All</option>
+										<option value="1">Completed</option>
+										<option value="2">Pending</option>
+									</select>
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<div *ngIf="authService.EmpJobsListData()">
+						<div *ngFor="let job of authService.EmpJobsListData().completed"
+							[ngClass]="(selctpost.value =='0' ||selctpost.value == '1')?'card-body':''">
+							<div *ngIf="selctpost.value =='0' ||selctpost.value == '1'" class="candidate-detail">
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="row">
+											<div class="col-md-2">
+												<div class="company-profile-img">
+													<img src="assets/images/banner/company-profile.png" alt>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<div class="company-title-info">
+													<span class="candidate_name">
+														{{job?.job_title}}
+													</span>
+												</div>
+												<!-- <div>
+													<span class="preview">
+														<span>Male | 22 years | Bengaluru</span>
+														<span>{{job.wh_city}}</span>
+													</span>
+												</div> -->
+												<div>
+													<span class="preview">
+														<!-- <span>Male | 22 years | Bengaluru</span> -->
+														<span>{{skills(job.skills)}}</span>
+													</span>
+												</div>
+												<div>
+													<span class="preview">
+														<span *ngIf="job.job_type===1">Full Time</span>
+														<span *ngIf="job.job_type===2">Part Time</span>
+														<span *ngIf="job.job_type===3">Contract</span>
+													</span>
+												</div>
+											</div>
+											<div class="col-md-2">
+												<span class="badge badge-light f-right btn-outline">Completed</span>
+											</div>
+										</div>
+									</div>
+									<div class="row mt-4">
+										<div class="col-lg-6">
+											<ul class="job-info">
+												<!-- <li>
+													<b>Job Title</b>
+													{{job?.job_title}}
+												</li> -->
+												<li>
+													<b>Job Type</b>
+													{{job?.location_type_name}}
+												</li>
+												<li>
+													<b>Experience</b>
+													<span *ngIf="job.min_experience!=null">{{job.min_experience}}</span>
+													<span *ngIf="job.min_experience==null">Fresher</span>
+												</li>
+												<li>
+													<b>Salary Range</b>
+													{{job.min_salary}} - {{job.max_salary}}
+												</li>
+											</ul>
+
+										</div>
+										<div class="col-lg-6">
+											<ul class="job-info">
+												<li>
+													<b>Work Location</b>
+													<span style="font-size: 16px" *ngIf="job?.location_type == '2'">
+														<!-- <input
+													  type="text" [formControl]="job_Details.controls?.wh_address"> -->
+														{{job?.wh_address}}
+
+													</span>
+													<span style="font-size: 16px" *ngIf="job?.location_type == '1'">
+														<span *ngIf="job?.wo_place == '1'">
+															{{job?.wo_city}}</span>
+														<span *ngIf="job?.wo_place == '2'">Anywhere From
+															India</span>
+													</span>
+													<span style="font-size: 16px" *ngIf="job?.location_type == '3'">
+														<!-- <input
+													  type="text" [formControl]="job_Details.controls?.wh_address"> -->
+														Hybrid
+													</span>
+												</li>
+												<!-- <li>
+													<b>Qualification</b>
+													{{job.qualification}}
+												</li> -->
+												<li>
+													<b>Type of Interview</b>
+													{{job.interview_type_name}}
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="row mt-4">
+										<div class="col-md-8"></div>
+										<div class="col-md-4">
+											<div class>
+												<button (click)="navigate(job)" class="btn btn-primary btn-view">
+													View
+												</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div *ngFor="let job of authService.EmpJobsListData().pending" class="card-body">
+							<div class="candidate-detail" *ngIf="selctpost.value =='0' ||selctpost.value == '2'">
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="row">
+											<div class="col-md-2">
+												<div class="company-profile-img">
+													<img src="assets/images/banner/company-profile.png" alt>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<div class="company-title-info">
+													<span class="candidate_name">
+														{{job?.job_title}}
+													</span>
+												</div>
+												<!-- <div>
+													<span class="preview">
+														<span>Male | 22 years | Bengaluru</span>
+														<span>{{job.wh_city}}</span>
+													</span>
+												</div> -->
+												<div>
+													<span class="preview">
+
+														<span>{{skills(job.skills)}}</span>
+													</span>
+												</div>
+												<div>
+													<span class="preview">
+														<span *ngIf="job.job_type==1">Full Time</span>
+														<span *ngIf="job.job_type==2">Part Time</span>
+														<span *ngIf="job.job_type==3">Contract</span>
+													</span>
+												</div>
+											</div>
+											<div class="col-md-2">
+												<span style="background-color: #e2c654ab;
+												color: #000;" class="badge badge-light f-right btn-outline">Pending</span>
+											</div>
+										</div>
+									</div>
+									<div class="row mt-4">
+										<div class="col-lg-6">
+											<ul class="job-info">
+												<li>
+													<b>Job Type</b>
+													{{job.location_type_name}}
+												</li>
+												<li>
+													<b>Experience</b>
+													<span *ngIf="job.experience_type=='1'">Fresher</span>
+													<span *ngIf="job.experience_type=='2'">job?.min_experience</span>
+													<span *ngIf="job.experience_type=='3'">job?.any_experience</span>
+												</li>
+												<li>
+													<b>Salary Range</b>
+													{{job.min_salary}} - {{job.max_salary}}
+												</li>
+											</ul>
+
+										</div>
+										<div class="col-lg-6">
+											<ul class="job-info">
+												<li>
+													<span style="font-size: 16px" *ngIf="job?.location_type == '2'">
+														<!-- <input
+													  type="text" [formControl]="job_Details.controls?.wh_address"> -->
+														{{job?.wh_address}}
+
+													</span>
+													<span style="font-size: 16px" *ngIf="job?.location_type == '1'">
+														<span *ngIf="job?.wo_place == '1'">
+															{{job?.wo_city}}</span>
+														<span *ngIf="job?.wo_place == '2'">Anywhere From
+															India</span>
+													</span>
+													<span style="font-size: 16px" *ngIf="job?.location_type == '3'">
+														<!-- <input
+													  type="text" [formControl]="job_Details.controls?.wh_address"> -->
+														Hybrid
+													</span>
+												</li>
+												<!-- <li>
+													<b>Qualification</b>
+													{{job.qualification}}
+												</li> -->
+												<li>
+													<b>Type of Interview</b>
+													{{job.interview_type_name}}
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="row mt-4">
+										<div class="col-md-8"></div>
+										<div class="col-md-4">
+											<div class>
+												<button (click)="pendingNavigate(job)" style="width:100%"
+													class="btn btn-warning btn-view">
+													click here to complete the job
+												</button>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div *ngIf="!authService.EmpJobsListData()" class="bg-error mb-3"
+						style="top: 50%;position: absolute;left: 22%;">
+
+						No Records Found.
+
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+				<div class="card">
+					<!-- <div class="card-header">
+            <h4>AD banner</h4>
+          </div> -->
+					<div class="card-body">
+						<div class="doc-file-type col-12s">
+							<!-- <ng-scrollbar style="height: 570px" visibility="hover"> -->
+							<ul class="list-unstyled">
+								<li class="d-flex">
+									<div class="set-flex">
+										<!-- <h5 class="font-16 mb-3 text-center">AD Banner</h5> -->
+										<img src="assets/images/banner/adbanner.png" alt class="img-ad-banner">
+									</div>
+								</li>
+							</ul>
+							<!-- </ng-scrollbar> -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

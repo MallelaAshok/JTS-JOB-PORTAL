@@ -1,0 +1,315 @@
+<section class="main-content">
+  <ul class="breadcrumb breadcrumb-style">
+    <li class="breadcrumb-item">
+      <h5 class="page-title m-b-0">Preview Details</h5>
+    </li>
+  </ul>
+  <div class="section-body">
+    <div class="col-12 col-md-12 col-lg-12">
+      <div class="card">
+
+        <div>
+          <div>
+            <div class="card-body">
+              <div class="container">
+                <div id="test-l-4" class="content previewBox">
+                  <div class="row mt-3">
+                    <div class="col-md-6">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="d-inline">Job Preference</h4>
+                          <div class="card-header-action">
+                            <a (click)="navigate('new-job')" class="btn btn-primary">Edit</a>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <ul style="margin: 0;">
+                                <li>
+                                  Company name: <span style="font-size: 16px"> &nbsp;<b>{{companyname}}</b></span>
+                                </li>
+
+                              </ul>
+
+                              <ul class="preview_list" style="margin: 0;">
+                                <li><label>Job title</label>: <span
+                                    style="font-size: 16px">&nbsp;<b>{{job_data?.job_preference[0]?.job_title}}</b></span>
+                                </li>
+                                <!-- <li>
+                                  <input type="text" [formControl]="job_Details.controls?.job_title">
+                                   <h6>{{job?.job_title}}</h6>
+                                </li> -->
+                              </ul>
+
+                              <ul class="preview_list" style="margin: 0;">
+                                <li><label>Department | Role</label> : <span style="font-size: 16px">
+                                    &nbsp;<b>{{job_data?.job_preference[0]?.department_name}} |
+                                      {{job_data?.job_preference[0]?.role_name}}</b></span>
+                                </li>
+
+                              </ul>
+
+                              <ul class="preview_list" style="margin: 0;">
+                                <li><label>Job type</label> : &nbsp;<b><span style="font-size: 16px"
+                                      *ngIf="job_data?.job_preference[0]?.job_type == '1'">Full Time</span>
+                                    <span style="font-size: 16px"
+                                      *ngIf="job_data?.job_preference[0]?.job_type == '2'">Part Time</span>
+                                    <span style="font-size: 16px"
+                                      *ngIf="job_data?.job_preference[0]?.job_type == '3'">Contract</span>
+                                  </b>
+
+
+                                </li>
+                              </ul>
+
+                              <ul class="preview_list" style="margin: 0;">
+                                <li><label>Work type</label> : &nbsp;<b><span style="font-size: 16px"
+                                      *ngIf="job_data?.job_preference[0]?.location_type == '1'">Work From
+                                      Office</span>
+                                    <span style="font-size: 16px"
+                                      *ngIf="job_data?.job_preference[0]?.location_type == '2'">Work From
+                                      Home</span>
+                                    <span style="font-size: 16px"
+                                      *ngIf="job_data?.job_preference[0]?.location_type == '3'">Hybrid</span>
+                                  </b>
+
+                                </li>
+                              </ul>
+
+                              <ul class="preview_list" style="margin: 0;"
+                                *ngIf="(job_data?.job_preference[0]?.location_type == '1' || job_data?.job_preference[0]?.location_type == '2')">
+                                <li><label>Job location</label> : &nbsp;<b>
+                                    <span style="font-size: 16px"
+                                      *ngIf="job_data?.job_preference[0]?.location_type == '2'">
+                                      <!-- <input
+                                        type="text" [formControl]="job_Details.controls?.wh_address"> -->
+                                      {{job_data?.job_preference[0]?.wh_address}}
+
+                                    </span>
+                                    <span style="font-size: 16px"
+                                      *ngIf="job_data?.job_preference[0]?.location_type == '1'">
+                                      <span *ngIf="job_data?.job_preference[0]?.wo_place == '1'">
+                                        {{job_data?.job_preference[0]?.wo_city}}</span>
+                                      <span *ngIf="job_data?.job_preference[0]?.wo_place == '2'">Anywhere From
+                                        India</span>
+                                    </span>
+                                  </b>
+
+
+                                </li>
+
+
+
+                              </ul>
+
+                              <ul class="preview_list" style="margin: 0;">
+                                <li>
+                                  Monthly Salary | Pay Type : &nbsp; <b><span style="font-size: 16px">Min. Salary:
+                                      {{job_data?.job_preference[0]?.min_salary}}
+
+                                      <!-- <input type="text"
+                                        style="width: 70px;height: 26px;"
+                                        [formControl]="job_Details.controls?.min_salary"> -->
+
+                                      - Max. Salary: {{job_data?.job_preference[0]?.max_salary}}
+                                      <!-- <input type="text" style="width: 70px;height: 26px;"
+                                        [formControl]="job_Details.controls?.max_salary"> -->
+                                    </span>
+                                  </b>
+
+                                </li>
+
+
+                              </ul>
+
+                              <ul class="preview_list" style="margin: 0;">
+                                <li><label>Additional perks</label> : &nbsp; <b><span
+                                      style="font-size: 16px">{{job_data?.job_preference[0].perks}}</span></b>
+                                </li>
+                                <!-- <li>
+                                  <input type="text" [formControl]="job_Details.controls?.add_perks">
+                                </li> -->
+                              </ul>
+
+                              <!-- <ul class="preview_list" style="margin: 0;">
+                                <li><label>Joining Fee</label></li>
+                                <li>
+                                  <h6>-</h6>
+                                </li>
+                              </ul> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+
+                      <div class="col-lg-12">
+                        <div class="card">
+                          <div class="card-header">
+                            <h4 class="d-inline">Candidate Preference</h4>
+                            <div class="card-header-action">
+                              <a (click)="navigate('add-Candidate-prep')" class="btn btn-primary">Edit</a>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <ul class="preview_list" style="margin: 0;">
+                                  <li><label>Minimum Education</label> : &nbsp; <b> <span
+                                        style="font-size: 16px">{{job_data?.candidate_preference?.quali}}</span></b>
+                                  </li>
+                                  <!-- <li>
+                                    {{job.qualification}} 
+                                    <input type="text" [formControl]="AddCanPrepForm.controls?.qualification">
+                                  </li> -->
+                                </ul>
+
+                                <ul class="preview_list" style="margin: 0;">
+                                  <li><label>Experience Required</label> : &nbsp;
+
+                                    <b> <span style="font-size: 16px"
+                                        *ngIf="job_data?.candidate_preference?.experience_type == '1'">Fresher</span>
+                                      <span style="font-size: 16px"
+                                        *ngIf="job_data?.candidate_preference?.experience_type == '2'">
+                                        {{job_data?.candidate_preference?.min_experience}}
+                                        <!-- <input type="text"
+                                          [formControl]="AddCanPrepForm.controls?.min_experience"> -->
+                                      </span>
+                                      <span style="font-size: 16px"
+                                        *ngIf="job_data?.candidate_preference?.experience_type == '3'">
+                                        {{job_data?.candidate_preference?.any_experience}} Years
+                                        <!-- <input type="text" [formControl]="AddCanPrepForm.controls?.any_experience"> -->
+                                      </span>
+                                    </b>
+
+                                  </li>
+                                </ul>
+
+                                <ul class="preview_list" style="margin: 0;">
+                                  <li><label>Languages</label>:&nbsp; <b>
+
+                                      {{job_data?.candidate_preference?.lan}}
+                                      <!-- <input type="text" [formControl]="AddCanPrepForm.controls?.language"> -->
+                                    </b>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h4 class="d-inline">Interview Preference</h4>
+                              <div class="card-header-action">
+                                <a (click)="navigate('add-Interview-prep')" class="btn btn-primary">Edit</a>
+                              </div>
+                            </div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <ul class="preview_list" style="margin: 0;">
+                                    <li>
+                                      <label>Communication Preferences</label> : &nbsp;
+
+                                      <b>
+                                        <span style="font-size: 16px"
+                                          *ngIf="job_data?.interviewer_preference[0]?.interview_type == '1'">
+                                          <span
+                                            *ngIf="job_data?.interviewer_preference[0]?.interview_location_type == '1'">
+                                            {{job_data?.interviewer_preference[0]?.il_country}},{{job_data?.interviewer_preference[0]?.il_state}},{{job_data?.interviewer_preference[0]?.il_pincode}}
+                                            <!-- <input type="text" [formControl]="AddIntPrepForm.controls?.il_country">,
+                                            <input type="text" [formControl]="AddIntPrepForm.controls?.il_state"> <input
+                                              type="text" [formControl]="AddIntPrepForm.controls?.il_pincode"> -->
+                                          </span>
+                                          <span
+                                            *ngIf="job_data?.interviewer_preference[0]?.interview_location_type == '2'">Same
+                                            Address</span>
+                                        </span>
+                                        <span *ngIf="job_data?.interviewer_preference[0]?.interview_type == '2'"
+                                          style="font-size: 16px">
+                                          <!-- <input type="text" [formControl]="AddIntPrepForm.controls?.t_contact_person">
+                                          -
+                                          <input type="text" [formControl]="AddIntPrepForm.controls?.t_contact_number"> -->
+                                          {{job_data?.interviewer_preference[0]?.t_contact_person}}
+                                          -{{job_data?.interviewer_preference[0]?.t_contact_number}}
+                                        </span>
+                                        <span style="font-size: 16px"
+                                          *ngIf="job_data?.interviewer_preference[0]?.interview_type == '3'">
+                                          <span *ngIf="job_data?.interviewer_preference[0]?.s_send_resume == '1'">
+                                            {{job_data?.interviewer_preference[0]?.s_email}}
+                                            <!-- <input type="text" [formControl]="AddIntPrepForm.controls?.s_email"> -->
+                                          </span>
+                                          <span
+                                            *ngIf="job_data?.interviewer_preference[0]?.s_send_resume == '2'"></span>
+                                        </span>
+                                      </b>
+                                    </li>
+                                  </ul>
+
+                                  <ul class="preview_list" style="margin: 0;"
+                                    *ngIf="job_data?.interviewer_preference[0]?.interview_type == '1'||job_data?.interviewer_preference[0]?.interview_type == '2'">
+                                    <li>
+                                      <label>Notification Preferences</label><br>
+
+                                      <span style="font-size: 16px">Interview Timings : &nbsp;<b>
+                                          <span *ngIf="job_data?.interviewer_preference[0]?.interview_type == '1'">
+                                            {{job_data?.interviewer_preference[0]?.w_interview_time_from}} -
+                                            {{job_data?.interviewer_preference[0]?.w_interview_time_to}} </span>
+                                          <span *ngIf="job_data?.interviewer_preference[0]?.interview_type == '2'">
+                                            {{job_data?.interviewer_preference[0]?.t_interview_time_from}} -
+                                            {{job_data?.interviewer_preference[0]?.t_interview_time_to}}</span>
+                                        </b>
+                                      </span>
+                                      <!-- <input type="text" [formControl]="AddIntPrepForm.controls?.w_interview_time_from">
+                                      -
+                                      <input type="text" [formControl]="AddIntPrepForm.controls?.w_interview_time_to"> -->
+
+                                    </li>
+                                  </ul>
+
+                                  <ul class="preview_list" style="margin: 0;">
+                                    <li><label>Type of Interview : </label> &nbsp;
+                                      <b><span style="font-size: 16px"
+                                          *ngIf="job_data?.interviewer_preference[0]?.interview_type == '1'">Walkin</span>
+                                        <span style="font-size: 16px"
+                                          *ngIf="job_data?.interviewer_preference[0]?.interview_type == '2'">Telephonic</span>
+                                        <span style="font-size: 16px"
+                                          *ngIf="job_data?.interviewer_preference[0]?.interview_type == '3'">We will
+                                          shortlist</span>
+                                      </b>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <button (click)="saveJob()" style="float: right;
+                  margin-right: 25px;
+                  font-size: large;
+                  width: 150px;
+                  height: 36px;
+                  margin-bottom: 25px;" class="btn btn-primary f-right">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,94 @@
+.current-plan{
+    margin-bottom: 40px;
+}
+
+.transaction-history{
+    float: right;
+    margin-top: 25px;
+}
+
+.btn-outline{
+    border: 1px solid #019EFF;
+    color: #019EFF;
+}
+
+.btn-outline:hover{
+    border: 1px solid #019EFF!important;
+    color: #019EFF;
+}
+
+.icon-correct{
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+}
+
+.pricing-item-label{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.pricing .pricing-cta a{
+color: #fff;
+}
+
+.pricing .pricing-title{
+    margin-top: 30px;
+}
+
+.current-plan-title{
+    padding: 40px; 
+    border-left:2px solid #000 ;
+    border-top:2px solid #000 ;
+    border-bottom:2px solid #000 ;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.current-plan-type{
+    border-right: 2px solid #000;
+    border-top:2px solid #000 ;
+    border-bottom: 2px solid #000;
+    border-left:2px solid #000 ;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
+
+.mb-40{
+    margin-bottom: 40px;
+}
+
+.p-20{
+    padding: 15px; 
+}
+
+.plan-desc{
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.plan-type{
+    float: right;
+    padding: 50px;
+    
+}
+.plan-type-title{
+    font-size: 24px;
+    font-weight: 700;
+}
+.plan-type-text{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.plan-last-date{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.cancel-plan{
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: underline;
+}

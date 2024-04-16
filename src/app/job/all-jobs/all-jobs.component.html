@@ -1,0 +1,79 @@
+<section class="main-content">
+  <ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+      <h5 class="page-title m-b-0">My Jobs</h5>
+    </li>
+    
+  </ul>
+  <div class="section-body">
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+     
+          <div class="card-body p-0" style="margin-left: 20px;">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <tr style="margin-left: 100px;">
+                  <!-- <th class="text-center">
+                    <div class="custom-checkbox custom-checkbox-table custom-control">
+                      <input type="checkbox" data-checkboxes="mygroup" data-checkbox-role="dad"
+                        class="custom-control-input" id="checkbox-all">
+                      <label for="checkbox-all" class="custom-control-label">&nbsp;</label>
+                    </div>
+                  </th> -->
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Job Created</th>
+                  <th>Applicatants</th>
+                  <th>Status</th>
+          
+                </tr>
+          
+                <!-- <div *ngIf="authService.EmpJobsListData()"> -->
+                  
+                <tr *ngFor="let job of authService.EmpJobsListData().completed">
+                  <!-- <td class="p-0 text-center">
+                    <div class="custom-checkbox custom-control">
+                      <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
+                      <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
+                    </div>
+                  </td> -->
+                  <td class="align-middle">{{job.id}}</td>
+                  <td class="align-middle">{{job.job_title}}</td>
+                  <td class="align-middle">{{job.create_date}}</td>
+                  <td class="align-middle">{{122}}</td>
+                  <td>
+                    <div class="badge badge-success">Completed</div>
+                  </td>
+                  <!-- <td> <a class="">
+                      <i class="far fa-trash-alt"></i>
+                    </a>
+                  </td> -->
+                </tr>
+
+                <tr *ngFor="let job of authService.EmpJobsListData().pending">
+                  <!-- <td class="p-0 text-center">
+                    <div class="custom-checkbox custom-control">
+                      <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="checkbox-1">
+                      <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
+                    </div>
+                  </td> -->
+                  <td class="align-middle">{{job.id}}</td>
+                  <td class="align-middle">{{job.job_title}}</td>
+                  <td class="align-middle">{{job.create_date}}</td>
+                  <td class="align-middle">{{122}}</td>
+                  <td>
+                    <div class="badge badge-success">Completed</div>
+                  </td>
+            
+                </tr>
+             
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

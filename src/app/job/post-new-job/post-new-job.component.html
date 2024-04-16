@@ -1,0 +1,972 @@
+<section class="main-content">
+  <ul class="breadcrumb breadcrumb-style">
+    <li class="breadcrumb-item">
+      <h5 class="page-title m-b-0">Job Preference</h5>
+    </li>
+  </ul>
+  <app-add-job></app-add-job>
+  <div class="section-body">
+    <div class="col-12 col-md-12 col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="container">
+            <div id="stepper1" class="bs-stepper">
+              <div class="bs-stepper-header" style="display: none;">
+                <div class="step" data-target="#test-l-1">
+                  <button class="step-trigger">
+                    <span class="bs-stepper-circle">1</span>
+                    <span class="bs-stepper-label">Job Details</span>
+                  </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#test-l-2">
+                  <button class="step-trigger">
+                    <span class="bs-stepper-circle">2</span>
+                    <span class="bs-stepper-label">Candidate Requirements
+                    </span>
+                  </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#test-l-3">
+                  <button class="step-trigger">
+                    <span class="bs-stepper-circle">3</span>
+                    <span class="bs-stepper-label">Interviewer Information
+                    </span>
+                  </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#test-l-4">
+                  <button class="step-trigger">
+                    <span class="bs-stepper-circle">4</span>
+                    <span class="bs-stepper-label">Job Preview </span>
+                  </button>
+                </div>
+                <div class="line"></div>
+                <div class="step" data-target="#test-l-5">
+                  <button class="step-trigger">
+                    <span class="bs-stepper-circle">5</span>
+                    <span class="bs-stepper-label">Select Plan </span>
+                  </button>
+                </div>
+              </div>
+              <div class="bs-stepper-content">
+                <form (ngSubmit)="onSubmit()" [formGroup]="postNewJobs">
+                  <div id="test-l-1" class="content">
+
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <label>Job Title
+                          <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="" formControlName="company_name"
+                          required />
+                        <small class="form-text text-danger" *ngIf="
+                            !postNewJobs.get('company_name')?.valid &&
+                            postNewJobs.get('company_name')?.touched
+                          ">Please enter a company name!</small>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <label>Role
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" placeholder="" formControlName="company_name"
+                          required />
+                      </div>
+
+                      <div class="form-group col-md-12">
+                        <label>Department
+                          <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="" formControlName="company_name"
+                          required />
+                        <small class="form-text text-danger" *ngIf="
+                            !postNewJobs.get('department')?.valid &&
+                            postNewJobs.get('department')?.touched
+                          ">Please enter a Department !</small>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <label>Industry<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" placeholder="" formControlName="company_name"
+                          required />
+                      </div>
+
+                      <!-- <div class="form-group col-md-12">
+                        <label>Job Type <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rbbuttons1" id="rb1" checked />
+                            <label class="form-check-label" for="rb1">
+                              Full Time
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rbbuttons1" id="rb2" />
+                            <label class="form-check-label" for="rb2">
+                              Part Time
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rbbuttons1" id="rb3" />
+                            <label class="form-check-label" for="rb3">
+                              Contract
+                            </label>
+                          </div>
+                        </div>
+                      </div> -->
+
+                      <div class="form-group col-lg-6">
+                        <label class="form-label">Job Type</label>
+                        <div class="selectgroup w-100">
+                          <label class="selectgroup-item">
+                            <input type="radio" name="radio1" value="1" class="selectgroup-input-radio" checked>
+                            <span class="selectgroup-button">Full Time</span>
+                          </label>
+                          <label class="selectgroup-item">
+                            <input type="radio" name="radio1" value="2" class="selectgroup-input-radio">
+                            <span class="selectgroup-button">Part Time</span>
+                          </label>
+                          <label class="selectgroup-item">
+                            <input type="radio" name="radio1" value="3" class="selectgroup-input-radio">
+                            <span class="selectgroup-button">Contract</span>
+                          </label>
+
+                        </div>
+                      </div>
+                      <div class="col-lg-6"></div>
+
+                      <div class="row">
+                        <div class="form-group col-lg-3">
+                          <label>Salary Range<span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" placeholder="Min" formControlName="salry-range"
+                            required />
+                        </div>
+
+                        <div class="form-group col-lg-3" style="margin-top: 28px;">
+
+                          <input type="text" class="form-control" placeholder="Max" formControlName="salry-range"
+                            required />
+                        </div>
+
+                        <div class="col-lg-6"></div>
+                      </div>
+
+                      <div class="form-group col-lg-6">
+                        <label class="form-label">Work Type</label>
+                        <div class="selectgroup w-100">
+                          <label class="selectgroup-item">
+                            <input type="radio" class="selectgroup-input-radio" formControlName="work_location"
+                              name="work_location" id="rb4" value="Work From Office" (change)="onRadioChange()">
+                            <span class="selectgroup-button" for="rb4">Work from Office</span>
+                          </label>
+
+                          <label class="selectgroup-item">
+                            <input type="radio" name="radio1" value="2" class="selectgroup-input-radio">
+                            <span class="selectgroup-button">Work from Home</span>
+                          </label>
+                          <label class="selectgroup-item">
+                            <input type="radio" name="radio1" value="3" class="selectgroup-input-radio">
+                            <span class="selectgroup-button">Hybrid</span>
+                          </label>
+
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6"></div>
+
+                      <div class="form-group col-md-6">
+                        <label>Benefits & Perks
+                          <span class="text-danger">*</span>
+                        </label>
+
+                        <input type="text" class="form-control" placeholder="Eg. Health & Insurance"
+                          formControlName="benefits-perks" required />
+
+                        <!-- <select class="form-select form-control">
+                          <option>Health Insurance</option>
+                          <option>Medical Allowance</option>
+                          <option>USA</option>
+                        </select> -->
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group">
+                        <label class="col-sm-3 col-form-label">Work Location:</label>
+                        <div class="col-md-9">
+                          <div class="input-group col-md-9">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" formControlName="work_location_address"
+                                name="work_location_address" id="newaddress" value="new_address"
+                                (ngModelChange)="OnWorkLocationChange()">
+                              <label class="form-check-label" for="newaddress">
+                                New Address
+                              </label>
+                            </div>
+
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" formControlName="work_location_address"
+                                name="work_location_address" id="sameaddress" value="same_address"
+                                (ngModelChange)="OnWorkLocationChange()">
+                              <label class="form-check-label" for="sameaddress">
+                                Same as Registered Address
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div *ngIf="displayNewAddress">
+
+                        <div class="form-group col-md-6">
+                          <label>Country
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <select class="form-select form-control">
+                            <option>India</option>
+                            <option>Dubai</option>
+                            <option>USA</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label>State
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <select class="form-select form-control">
+                            <option>Karnataka</option>
+                            <option>Tamilnadu</option>
+
+                          </select>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                          <label>Pincode
+                          </label>
+
+                          <input type="text" class="form-control" formControlName="pincode" required />
+                        </div>
+
+                        <div class="form-group col-md-12">
+                          <label>Location</label>
+                          <textarea type="textarea" class="form-control map-size" placeholder="Google Map"
+                            formControlName="comment"></textarea>
+                        </div>
+                      </div>
+
+                      <!-- <div *ngIf="displaySameRegAddress === true">
+                        <div class="form-group col-md-6">
+                          <label>City
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <select class="form-select form-control">
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                            <option>Option 3</option>
+                          </select>
+                        </div>
+                      </div> -->
+                    </div>
+
+                    <div class="row">
+                      <div class="form-group col-md-12">
+                        <label>Job Description</label>
+                        <textarea type="textarea" class="form-control map-size" placeholder=""
+                          formControlName="comment"></textarea>
+                      </div>
+                    </div>
+
+                    <button (click)="next($event)" class="btn btn-primary btn-next mt-3">
+                      Next
+                    </button>
+                  </div>
+                  <div id="test-l-2" class="content">
+                    <div class="row mt-3">
+                      <div class="col-lg-12">
+                        <h6>Candidate Requirements</h6>
+                      </div>
+                    </div>
+                    <div class="row ">
+                      <div class="form-group col-md-12">
+                        <label>Gender
+                          <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="gender" name="gender"
+                              id="male" value="Male" (change)="OnGenderChange()">
+                            <label class="form-check-label" for="male">
+                              Male
+                            </label>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="gender" name="gender"
+                              id="female" value="Female" (change)="OnGenderChange()">
+                            <label class="form-check-label" for="female">
+                              Female
+                            </label>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="gender" name="gender"
+                              id="bothmalefemale" value="Both Male and Female" (change)="OnGenderChange()">
+                            <label class="form-check-label" for="bothmalefemale">
+                              Both Male and Female
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="form-group col-lg-3">
+                          <label>Age Group<span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" placeholder="Min" formControlName="age-range"
+                            required />
+                        </div>
+
+                        <div class="form-group col-lg-3" style="margin-top: 28px;">
+
+                          <input type="text" class="form-control" placeholder="Max" formControlName="age-range"
+                            required />
+                        </div>
+
+                        <div class="col-lg-6"></div>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <label>Qualification
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" placeholder="" formControlName="company_name"
+                          required />
+                      </div>
+
+                      <div class="form-group col-md-12">
+                        <label>Experience Required
+                          <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="experiencerequired"
+                              name="experiencerequired" id="fresher" value="Fresher" (change)="OnExperienceChange()">
+                            <label class="form-check-label" for="fresher">
+                              Fresher
+                            </label>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="experiencerequired"
+                              name="experiencerequired" id="experience" value="Experience"
+                              (change)="OnExperienceChange()">
+                            <label class="form-check-label" for="experience">
+                              Experience
+                            </label>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="experiencerequired"
+                              name="experiencerequired" id="any" value="Any" (change)="OnExperienceChange()">
+                            <label class="form-check-label" for="any">
+                              Any
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div *ngIf="displayExperience">
+
+                        <div class="form-group col-md-6">
+                          <label>Experience
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <select class="form-select form-control">
+                            <option>0-1 Years</option>
+                            <option>1-3 Years</option>
+                            <option>3-5 Years</option>
+                            <option>5-7 Years</option>
+                            <option>7-9 Years</option>
+                            <option>9+ Years</option>
+                          </select>
+                        </div>
+
+                      </div>
+
+                      <div class="form-group col-md-12">
+                        <label>Skills
+                          <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" placeholder="" formControlName="company_name"
+                          required />
+                      </div>
+
+                      <div class="form-group col-md-12">
+                        <label>Receive Application from
+                          <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="receiveappfrom"
+                              name="receiveappfrom" id="anywhere" value="Anywhere_Ind" (change)="OnReceiveAppFrom()">
+                            <label class="form-check-label" for="anywhere">
+                              Any where from India
+                            </label>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="receiveappfrom"
+                              name="receiveappfrom" id="specific" value="Specific_Loc" (change)="OnReceiveAppFrom()">
+                            <label class="form-check-label" for="specific">
+                              Specific Location
+                            </label>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div *ngIf="displayAnywhere">
+
+                        <div class="form-group col-md-6">
+                          <label>Country
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <select class="form-select form-control">
+                            <option>India</option>
+                            <option>Dubai</option>
+                            <option>USA</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <label>State
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <select class="form-select form-control">
+                            <option>Karnataka</option>
+                            <option>Tamilnadu</option>
+
+                          </select>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                          <label>Location</label>
+                          <textarea type="textarea" class="form-control map-size" placeholder="Google Map"
+                            formControlName="comment"></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group col-md-12">
+                        <label>Notice Period
+                          <span class="text-danger">*</span>
+                        </label>
+
+                        <select class="form-select form-control">
+                          <option>Immediate</option>
+                          <option>30 days</option>
+                          <option>90 days</option>
+
+                        </select>
+                      </div>
+
+                      <div class="form-group col-md-12">
+                        <label>Language
+                          <span class="text-danger">*</span>
+                        </label>
+
+                        <select class="form-select form-control">
+                          <option>Tamil</option>
+                          <option>English</option>
+                          <option>Hindi</option>
+
+                        </select>
+                      </div>
+
+                    </div>
+                    <button (click)="next($event)" class="btn btn-primary btn-next mt-3">
+                      Next
+                    </button>
+                  </div>
+                  <div id="test-l-3" class="content">
+
+                    <div class="row ">
+                      <div class="col-lg-12 ">
+                        <h5>Interview Preference</h5>
+
+                      </div>
+                      <div class="form-group col-md-12 mt-3">
+                        <label>Type of Interview </label>
+                        <span class="text-danger">*</span>
+                        <div class="input-group">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="typeofinterview"
+                              name="typeofinterview" id="walkin" value="walk_in" (change)="OnTypeOfInterview()">
+                            <label class="form-check-label" for="walkin">
+                              Walkin
+                            </label>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="typeofinterview"
+                              name="typeofinterview" id="telephonic" value="telephonic_int"
+                              (change)="OnTypeOfInterview()">
+                            <label class="form-check-label" for="telephonic">
+                              Telephonic Interview
+                            </label>
+                          </div>
+
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" formControlName="typeofinterview"
+                              name="typeofinterview" id="shortlist" value="short_list" (change)="OnTypeOfInterview()">
+                            <label class="form-check-label" for="shortlist">
+                              we will shortlist
+                            </label>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div *ngIf="displayTelephonic">
+
+                        <div class="form-group col-lg-12">
+                          <label>Interview Date
+                            <span class="text-danger">*</span>
+                          </label>
+
+                          <input type="date" class="form-control" placeholder="" formControlName="" required />
+                        </div>
+                        <div class="form-group col-lg-12">
+                          <label>Interview Timings
+                            <span class="text-danger">*</span>
+                          </label>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <input type="datetime-local" class="form-control" placeholder="" formControlName=""
+                                required />
+                            </div>
+                            <div class="col-lg-6">
+                              <input type="datetime-local" class="form-control" placeholder="" formControlName=""
+                                required />
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <div class="form-group col-lg-12">
+
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <label>Contact Person
+                                <span class="text-danger">*</span>
+                              </label>
+                              <input type="text" class="form-control" placeholder="" formControlName="" required />
+                            </div>
+                            <div class="col-lg-6">
+                              <label>Contact Number
+                                <span class="text-danger">*</span>
+                              </label>
+                              <input type="text" class="form-control" placeholder="" formControlName="" required />
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
+                      <div *ngIf="displayShortlist">
+                        <div class="form-group col-md-12">
+                          <label>Do we have to send relevant resumes to your mail id?
+                          </label>
+                          <div class="input-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" formControlName="relevant" name="relevant"
+                                id="no" value="Yes" (change)="OnGenderChange()">
+                              <label class="form-check-label" for="male">
+                                Yes
+                              </label>
+                            </div>
+
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" formControlName="relevant" name="relevant"
+                                id="no" value="No">
+                              <label class="form-check-label" for="female">
+                                No
+                              </label>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                              <label>Enter Email ID
+                                <span class="text-danger">*</span>
+                              </label>
+                              <input type="email" class="form-control" placeholder="" formControlName="email"
+                                required />
+                            </div>
+
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div></div>
+                    <button (click)="next($event)" class="btn btn-primary btn-next mt-3">
+                      Save
+                    </button>
+                  </div>
+                  <div id="test-l-4" class="content previewBox">
+                    <div class="row mt-3">
+                      <div class="col-md-6">
+                        <div class="card">
+                          <div class="card-header">
+                            <h4 class="d-inline">Job Details</h4>
+                            <div class="card-header-action">
+                              <a href="#" onclick="return false;" class="btn btn-primary">Edit</a>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <ul class="preview_list">
+                                  <li>
+                                    <label>Company name<label></label></label>
+                                  </li>
+                                  <li>
+                                    <h6>Test</h6>
+                                  </li>
+                                </ul>
+
+                                <ul class="preview_list">
+                                  <li><label>Job title</label></li>
+                                  <li>
+                                    <h6>Category 1</h6>
+                                  </li>
+                                </ul>
+
+                                <ul class="preview_list">
+                                  <li><label>Department | Role</label></li>
+                                  <li>
+                                    <h6>
+                                      Job Sub Category | Job Final Category
+                                    </h6>
+                                  </li>
+                                </ul>
+
+                                <ul class="preview_list">
+                                  <li><label>Job type</label></li>
+                                  <li>
+                                    <h6>Full Time | General Shift</h6>
+                                  </li>
+                                </ul>
+
+                                <ul class="preview_list">
+                                  <li><label>Work type</label></li>
+                                  <li>
+                                    <h6>Work From Office</h6>
+                                  </li>
+                                </ul>
+
+                                <ul class="preview_list">
+                                  <li><label>Job location</label></li>
+                                  <li>
+                                    <h6>Abohar</h6>
+                                  </li>
+                                </ul>
+
+                                <ul class="preview_list">
+                                  <li>
+                                    <label>Monthly Salary | Pay Type</label>
+                                  </li>
+                                  <li>
+                                    <h6>Min. Salary: 200 - Max. Salary: 300</h6>
+                                  </li>
+                                </ul>
+
+                                <ul class="preview_list">
+                                  <li><label>Additional perks</label></li>
+                                  <li>
+                                    <h6></h6>
+                                  </li>
+                                </ul>
+
+                                <ul class="preview_list">
+                                  <li><label>Joining Fee</label></li>
+                                  <li>
+                                    <h6>-</h6>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+
+                        <div class="col-lg-12">
+                          <div class="card">
+                            <div class="card-header">
+                              <h4 class="d-inline">Candidate Requirements</h4>
+                              <div class="card-header-action">
+                                <a href="#" onclick="return false;" class="btn btn-primary">Edit</a>
+                              </div>
+                            </div>
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <ul class="preview_list">
+                                    <li><label>Minimum Education</label></li>
+                                    <li>
+                                      <h6>10th or Below 10th</h6>
+                                    </li>
+                                  </ul>
+
+                                  <ul class="preview_list">
+                                    <li><label>Experience Required</label></li>
+                                    <li>
+                                      <h6>6 months</h6>
+                                    </li>
+                                  </ul>
+
+                                  <ul class="preview_list">
+                                    <li><label>English</label></li>
+                                    <li>
+                                      <h6>No English</h6>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-12">
+                            <div class="card">
+                              <div class="card-header">
+                                <h4 class="d-inline">Interview Information</h4>
+                                <div class="card-header-action">
+                                  <a href="#" onclick="return false;" class="btn btn-primary">Edit</a>
+                                </div>
+                              </div>
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <ul class="preview_list">
+                                      <li>
+                                        <label>Communication Preferences</label>
+                                      </li>
+                                      <li>
+                                        <h6>vivekq - 852741852</h6>
+                                      </li>
+                                    </ul>
+
+                                    <ul class="preview_list">
+                                      <li>
+                                        <label>Notification Preferences</label>
+                                      </li>
+                                      <li>
+                                        <h6>Viveka - 8098778216</h6>
+                                      </li>
+                                    </ul>
+
+                                    <ul class="preview_list">
+                                      <li><label>Type of Interview</label></li>
+                                      <li>
+                                        <h6>In-person interview</h6>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <button (click)="saveJob()" class="btn btn-primary f-right">
+                      Submit
+                    </button>
+                  </div>
+                  <div id="test-l-5" class="content text-center">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-12 col-md-4 col-lg-4">
+                          <div class="pricing">
+                            <div class="pricing-title">Developer</div>
+                            <div class="pricing-padding">
+                              <div class="pricing-price">
+                                <div>$19</div>
+                                <div>per month</div>
+                              </div>
+                              <div class="pricing-details">
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    1 user agent
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    Core features
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    1GB storage
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    2 Custom domain
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon bg-danger text-white">
+                                    <i class="fas fa-times"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    Live Support
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="pricing-cta">
+                              <a href="#" onClick="return false;">Subscribe <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4 col-lg-4">
+                          <div class="pricing pricing-highlight">
+                            <div class="pricing-title">Small Team</div>
+                            <div class="pricing-padding">
+                              <div class="pricing-price">
+                                <div>$60</div>
+                                <div>per month</div>
+                              </div>
+                              <div class="pricing-details">
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    5 user agent
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    Core features
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    10GB storage
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    10 Custom domain
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    24/7 Support
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="pricing-cta">
+                              <a href="#" onClick="return false;">Subscribe <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-4 col-lg-4">
+                          <div class="pricing">
+                            <div class="pricing-title">Enterprise</div>
+                            <div class="pricing-padding">
+                              <div class="pricing-price">
+                                <div>$499</div>
+                                <div>per month</div>
+                              </div>
+                              <div class="pricing-details">
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    Unlimited user agent
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    Core features
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    8TB storage
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    Unlimited custom domain
+                                  </div>
+                                </div>
+                                <div class="pricing-item">
+                                  <div class="pricing-item-icon">
+                                    <i class="fas fa-check"></i>
+                                  </div>
+                                  <div class="pricing-item-label">
+                                    Lifetime Support
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="pricing-cta">
+                              <a href="#" onClick="return false;">Subscribe <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-5">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,99 @@
+.top-recruiters-heading {
+    text-align: center;
+    font-weight: 600;
+    font-size: 31px;
+
+}
+
+.top-recruiters-icon-containers {
+    /* border: 1px solid red; */
+    /* height: 500px; */
+
+}
+
+.top-recruiters-icons {
+    display: flex;
+    margin: 40px auto;
+    width: 90%;
+    justify-content: center;
+    column-gap: 40px;
+    /* border: 1px solid red; */
+
+}
+
+.top-recruiters-titel {
+    text-align: center;
+    margin: 130px auto;
+    /* border: 1px solid red; */
+
+
+}
+
+.top-recruiters-titel>h1 {
+    width: 75%;
+    margin: auto;
+    font-weight: 590;
+    font-size: 33px;
+}
+
+.top-recruiters-titel>h1>samp {
+    border-bottom: 4px solid;
+    border-image: linear-gradient(to right, #019EFF, #BF38FF);
+    border-image-slice: 01;
+    padding: 17px 15px;
+
+}
+
+#microsoft {
+    background: url(../image/microsoft.png) no-repeat;
+
+    background-size: 120px 30px;
+    background-position: center center;
+    height: 90px;
+    width: 130px;
+}
+
+#paypa {
+    background: url(../image/mastercard.png) no-repeat;
+
+    background-size: 120px 30px;
+    background-position: center center;
+    height: 90px;
+    width: 130px;
+}
+
+#mastercard {
+    background: url(../image/mastercard\ 1.png) no-repeat;
+
+    background-size: 60px 60px;
+    background-position: center center;
+    height: 90px;
+    width: 130px;
+}
+
+#hcl {
+    background: url(../image/HCL.png) no-repeat;
+
+    background-size: 131px 30px;
+    background-position: center center;
+    height: 90px;
+    width: 130px;
+}
+
+#tcs {
+    background: url(../image/Top-10-IT-Companies-in-India.png) no-repeat;
+
+    background-size: 80px 40px;
+    background-position: center center;
+    height: 90px;
+    width: 130px;
+
+}
+@media (max-width: 412px){
+    .top-recruiters-heading>p{
+        font-size: 22px;
+    }
+    .top-recruiters-icons{
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,86 @@
+.reg-form-bg {
+
+  // position: fixed;
+  // margin-left: 100px;
+  padding: 5px 40px 5px 40px;
+
+}
+
+.reg-card {
+  border: 0;
+  border-radius: 27.5px;
+  box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+  overflow: hidden;
+  margin-bottom: 0px;
+  padding: 40px;
+
+  
+
+  &-img {
+    border-radius: 0;
+    width: 100%;
+    
+    // object-fit: cover;
+    padding: 60px;
+    
+  }
+}
+
+.register-img{
+
+  background-color: #F4F4F4;
+  border-radius: 17.5px;
+  margin-top: -50px;
+}
+
+.reg-card-img{
+  border-radius: 0;
+    width: 100%;
+    vertical-align: middle;
+    margin-top: 180px;
+}
+
+.reg-card form {
+  margin: -55px 120px 0px 50px;
+}
+.sign-in-note {
+  margin-top: -25px;
+  font-size: 10px;
+
+}
+
+.otp-note{
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+.get-otp{
+  margin-top: 30px;
+  background-color: #51A7F1;
+  border: 1px solid #51A7F1;
+  width: 80px;
+  margin-left: -5px;
+}
+
+.get-otp:hover{
+  margin-top: 30px;
+  background-color: #51A7F1;
+  border: 1px solid #51A7F1;
+}
+
+.get-otp-timer{
+  margin-top: 30px;
+  background-color: #51A7F1;
+  border: 1px solid #51A7F1;
+
+}
+
+.form-control{
+  background-color: #fff!important;
+}
+
+.error-display{
+  color: red;
+  font-size: 14px;
+  font-weight: 600;
+}

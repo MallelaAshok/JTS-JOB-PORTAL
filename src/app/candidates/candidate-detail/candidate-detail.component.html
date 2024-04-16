@@ -1,0 +1,112 @@
+<section class="main-content">
+  <ul class="breadcrumb breadcrumb-style ">
+    <li class="breadcrumb-item">
+      <h5 class="page-title m-b-0">Profile</h5>
+    </li>
+
+  </ul>
+  <div class="section-body">
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="card author-box">
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-lg-5">
+                <div class="profile ">
+                  <img alt="image" [src]="userData?.user_avatar_url??'assets/images/banner/profile.png'"
+                    class="rounded-circle author-box-picture">
+
+                  <div class="clearfix"></div>
+                  <div class="profile-name">
+                    <a href="#" onClick="return false;"> {{userData?.userData?.first_name}}
+                      {{userData?.userData?.last_name}}</a>
+                  </div>
+                </div>
+
+                <div class="profile-info">
+                  <ul class="profile-info-list">
+                    <li class="c-black"><img src="assets/images/icons/email.png" class="profile-icon">
+                      {{userData?.userData?.email}}
+                    </li>
+                    <li class="c-grey"><img src="assets/images/icons/calender.png" class="profile-icon">
+                      {{userData?.userData?.dob}}</li>
+                    <li><img src="assets/images/icons/location.png" class="profile-icon"> {{userData?.userData?.city}}
+                    </li>
+                    <li><img src="assets/images/icons/language.png" class="profile-icon">
+                      {{userData?.skillData?.lan}}</li>
+                    <li><img src="assets/images/icons/expe.png" class="profile-icon">
+                      {{userData?.experienceData?.total_experience_year}}
+                      {{userData?.experienceData?.total_experience_month}}</li>
+                  </ul>
+
+                  <div class="skills">
+                    <li class="f-b"><b>Skills</b></li>
+                    <li class="c-grey">{{binddata(userData)}}</li>
+                  </div>
+
+                  <div class="education">
+                    <li class="f-b"><b>Education</b></li>
+                    <li class="c-grey">{{userData?.educationData?.degree}}</li>
+                  </div>
+
+                  <div class="education-bg">
+                    <th>
+                      <tr>
+                        <td class="pr-10">{{userData?.educationData?.college_name}} &nbsp;|</td>
+                        <!-- <td class="pr-10">Chennai</td> -->
+                        <td class="pr-10">{{userData?.educationData?.degree}} &nbsp; |</td>
+                        <td class="pr-10" *ngIf="userData?.educationData?.education_type=='2'">Part Time |</td>
+                        <td class="pr-10" *ngIf="userData?.educationData?.education_type=='1'">Full Time |</td>
+                        <td class="pr-10">{{userData?.educationData?.comp_year}}</td>
+                      </tr>
+                    </th>
+                  </div>
+
+                  <div class="experience">
+
+                    <ul class="job-info">
+                      <li class="f-b-mb">Experience</li>
+                      <li><b>Company Name</b>{{userData?.experienceData?.company_name}}</li>
+                      <li><b>Current Salary</b>{{userData?.experienceData?.current_salary??"NA"}}</li>
+                      <li><b>Experience</b>{{userData?.experienceData?.total_experience_year}}
+                        {{userData?.experienceData?.total_experience_month}}</li>
+                      <li><b>Notice Period</b>{{userData?.experienceData?.notice_period??"NA"}}</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-lg-7">
+                <div class="f-right">
+                  <span><select class="searchDrop" id="dropdownslct">
+                      <option value="0">Please Select</option>
+                      <option value="1">Shortlist</option>
+                      <option value="2">Interview Scheduled</option>
+                      <option value="3">Selected</option>
+                      <option value="4">Joined</option>
+                    </select></span>
+                </div>
+
+                <div class="card-body">
+                  <div class="resume-preview">
+                    <div class="bg-error" style="position: relative; top:50%;left: 15%;" id="nopre">No Preview</div>
+                    <object id="pdfviewer" width="100%" height="100%"></object>
+                  </div>
+                  <div class="bg-error" id="pdfError" style="display: none;"> Please Select Any Option To Update Changes
+                  </div>
+                </div>
+                <button (click)="download()" type="button" class="d-resume"><img src="assets/images/icons/download.png"
+                    class="download-icon">Download Resume</button>
+                <button type="button" (click)="updateEmployeeJobStatus()" class="btn-update">Update Changes</button>
+              </div>
+            </div>
+          </div>
+          <!--Card Ends-->
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

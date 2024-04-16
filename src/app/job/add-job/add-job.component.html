@@ -1,0 +1,330 @@
+<section class="main-content">
+    <ul class="breadcrumb breadcrumb-style">
+        <li class="breadcrumb-item">
+            <h5 class="page-title m-b-0">Job Preference</h5>
+        </li>
+    </ul>
+    <div class="section-body">
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container">
+                        <form (ngSubmit)="onSubmit()" [formGroup]="AddJobForm">
+                            <div class="row" *ngFor="let job of jobsArray">
+                                <div class="form-group col-md-12"
+                                    *ngIf="job.label!=='Job Type'&&job.label!=='Job Description'&&job.label!=='Salary Range'&&job.label!=='Work Type'&& job.label!=='Work Location' && job.label!=='Role' && job.label!=='Industry' && job.label!=='Department' && job.label!=='Benifits & Perks'">
+                                    <label>{{job.label}}
+                                        <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" placeholder="" [formControlName]="job.name"
+                                        required
+                                        [ngClass]="(AddJobForm.get('job_title')?.touched && !AddJobForm.get('job_title')?.valid)?'form-control is-invalid':'form-control'" />
+                                    <small
+                                        *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{job.label}}
+                                    </small>
+                                </div>
+
+                                <div class="form-group col-md-12" *ngIf="job.label=='Role'">
+                                    <label>{{job.label}}
+                                        <span class="text-danger">*</span></label>
+                                    <select required formControlName={{job.name}}
+                                        [ngClass]="(AddJobForm.get('job_title')?.touched && !AddJobForm.get('job_title')?.valid)?'form-control custom-select':'form-control custom-select'">
+                                        <option *ngFor="let role of this.rolelist" [value]="role?.id"
+                                            [ngClass]="(AddJobForm.get('job_title')?.touched && !AddJobForm.get('job_title')?.valid)?'form-control ':'form-control'">
+                                            {{role?.role_name}}</option>
+                                    </select>
+
+                                    <!-- <small
+                                        *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{job.label}}
+                                    </small> -->
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="job.label=='Department'">
+                                    <label>{{job.label}}
+                                        <span class="text-danger">*</span></label>
+                                    <select required formControlName={{job.name}}
+                                        [ngClass]="(AddJobForm.get('job_title')?.touched && !AddJobForm.get('job_title')?.valid)?'form-control':'form-control'">
+                                        <option *ngFor="let role of this.deplist" [value]="role?.id"
+                                            [ngClass]="(AddJobForm.get('job_title')?.touched && !AddJobForm.get('job_title')?.valid)?'form-control ':'form-control'">
+                                            {{role?.department_name}}</option>
+                                    </select>
+
+                                    <!-- <small
+                                        *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{job.label}}
+                                    </small> -->
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="job.label=='Industry'">
+                                    <label>{{job.label}}
+                                        <span class="text-danger">*</span></label>
+                                    <select required formControlName={{job.name}}
+                                        [ngClass]="(AddJobForm.get('job_title')?.touched && !AddJobForm.get('job_title')?.valid)?'form-control':'form-control'">
+                                        <option *ngFor="let role of this.industrylist" [value]="role?.id">
+                                            {{role?.industry_name}}</option>
+                                    </select>
+
+                                    <!-- <small
+                                        *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{job.label}}
+                                    </small> -->
+                                </div>
+
+
+
+
+                                <div class="form-group col-md-12" *ngIf="job.label === 'Job Type'">
+                                    <label class="form-label">{{job.label}}
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <br>
+                                    <div class="selectgroup">
+                                        <label style="width: 150px;" class="selectgroup-item"
+                                            *ngFor="let JType of jobType">
+                                            <input type="radio" [value]="JType.value" [name]="JType.name"
+                                                class="selectgroup-input-radio" [formControlName]="JType.name"
+                                                [ngClass]="(AddJobForm.get('job_title')?.touched && !AddJobForm.get('job_title')?.valid)?'form-control is-invalid':'form-control'">
+
+                                            <span class="selectgroup-button">{{JType.label}}</span>
+
+                                        </label>
+                                    </div>
+                                    <small
+                                        *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Choose a {{job.label}}
+                                    </small>
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="job.label === 'Salary Range'">
+                                    <label>Salary Range<span class="text-danger">*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" placeholder="Min-Salary"
+                                                [formControlName]="SalaryRange[0].name" required
+                                                (keypress)="onlynumbers($event);" (input)="salarychange($event)"
+                                                [ngClass]="(AddJobForm.get('job_title')?.touched && !AddJobForm.get('job_title')?.valid)?'form-control is-invalid':'form-control'" />
+
+                                        </div>
+                                        <!-- <div class="col-md-1"></div> -->
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control" placeholder="Max-Salary"
+                                                [formControlName]="SalaryRange[1].name" required
+                                                (keypress)="onlynumbers($event);" (input)="salarychange($event)"
+                                                [ngClass]="(AddJobForm.get('job.name')?.touched && !AddJobForm.get('job.name')?.valid)?'form-control is-invalid':'form-control'" />
+                                        </div>
+                                    </div>
+                                    <small
+                                        *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Choose a {{job.label}}
+                                    </small>
+                                    <small *ngIf="Salarywarning" class="form-text text-danger">
+                                        Please Enter Proper salary range
+                                    </small>
+
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="job.label === 'Work Type'">
+                                    <label class="form-label">{{job.label}}
+                                        <span class="text-danger">*</span>
+                                    </label><br>
+                                    <div class="selectgroup">
+                                        <label class="selectgroup-item" style="width: 150px;"
+                                            *ngFor="let WType of WorkType">
+                                            <input type="radio" [value]="WType.value" [name]="WType.name"
+                                                class="selectgroup-input-radio" [formControlName]="WType.name"
+                                                [ngClass]="(AddJobForm.get('job.name')?.touched && !AddJobForm.get('job.name')?.valid)?'form-control is-invalid':'form-control'" />
+                                            <span class="selectgroup-button">{{WType.label}}</span>
+                                        </label>
+                                    </div>
+                                    <small
+                                        *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Choose a {{job.label}}
+                                    </small>
+                                </div>
+                                <div class="form-group col-md-12"
+                                    *ngIf="job.label === 'Work Type' && AddJobForm.value.location_type === '1'">
+                                    <label>Recive Application From<span class="text-danger">*</span></label>
+                                    <div class="selectgroup w-100">
+                                        <label style="width :150px" class="selectgroup-item"
+                                            *ngFor="let WHType of workFromHome">
+                                            <input type="radio" [value]="WHType.value" [name]="WHType.name"
+                                                [id]="WHType.name" class="selectgroup-input-radio"
+                                                [formControlName]="WHType.name">
+                                            <span class="selectgroup-button">{{WHType.label}}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12"
+                                    *ngIf="job.label === 'Work Type' && AddJobForm.value.location_type === '1' && AddJobForm.controls.wo_place.value == '1'">
+
+                                    <div *ngFor="let WFType of specificCity">
+                                        <label>{{WFType.label}}</label><span class="text-danger">*</span>
+                                        <input type="text" class="form-control" placeholder=""
+                                            [formControlName]="WFType.name" />
+                                    </div>
+
+                                </div>
+                                <div class="form-group col-md-12"
+                                    *ngIf="job.label === 'Work Type' && AddJobForm.value.location_type === '2'">
+                                    <div *ngFor="let WFType of workFromOffice">
+                                        <label>{{WFType.label}}</label>
+                                        <input type="text" class="form-control" placeholder=""
+                                            [formControlName]="WFType.name" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12" *ngIf="job.label=='Benifits & Perks'">
+                                    <label>{{job.label}}
+                                        <span class="text-danger">*</span></label>
+                                    <br>
+                                    <div style="position: relative;left:11px">
+                                        <span *ngFor="let data of peakdata;let i = index">
+                                            &nbsp;
+                                            <label id="peak{{i}}" style="background-color: white;
+                                                height: 26px;
+                                                position: relative;
+                                                border: 1px solid #8aa9c4;
+                                                border-radius: 21px;
+                                                color: black;" (click)="addpeaks(job,data,'peak',i)">&nbsp;&nbsp;
+                                                {{data?.perk_name}}
+                                                <span *ngIf="data?.sign =='P'">&plus;</span>
+                                                <span *ngIf="data?.sign =='I'"
+                                                    style="font-size: small; top:2px;position: relative;left: 4px;">
+                                                    &#10005;</span>
+                                                &nbsp; &nbsp;
+
+                                            </label>
+                                        </span>
+                                    </div>
+                                    <!-- <select required formControlName={{job.name}} (change)="changeselect(job,$event)"
+                                        [ngClass]="(AddJobForm.get('add_perks')?.touched && !AddJobForm.get('add_perks')?.valid)?'form-control custom-select':'form-control custom-select'">
+                                        <option *ngFor="let role of peakdata" [value]="role?.perk_name"
+                                            [ngClass]="(AddJobForm.get('add_perks')?.touched && !AddJobForm.get('add_perks')?.valid)?'form-control ':'form-control'">
+                                            {{role?.perk_name}}</option>
+                                    </select>
+                                    <small style="display: inline-flex;">
+                                        <p *ngFor="let arr of job.Array">
+                                            &nbsp;
+                                            <label
+                                                style="padding-left: 10px;top:5px;background: #D9D9D9;border-radius: 50px;position: relative;left: 5px;">
+                                                {{arr}}
+
+                                                <span
+                                                    style="margin:6px; text-align:center;position: relative; cursor: pointer;"
+                                                    (click)="deletebtn(job,arr)">&#10005;</span>
+                                            </label>
+                                        </p>
+                                    </small> -->
+
+                                    <!-- <small
+                                        *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{job.label}}
+                                    </small> -->
+                                </div>
+                                <div class="row" *ngIf="job.label === 'Work Type'">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 col-form-label">Work Location</label>
+                                        <div class="col-md-9">
+                                            <div class="input-group col-md-9">
+                                                <div class="form-check" *ngFor="let Add of locationType">
+                                                    <!-- Ensure formControlName and name attributes are set correctly -->
+                                                    <input class="form-check-input" type="radio"
+                                                        [formControlName]="Add.name" [id]="Add.label"
+                                                        [value]="Add.value">
+                                                    <label class="form-check-label" [for]="Add.label">
+                                                        {{ Add.label }}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12"
+                                    *ngIf="job.label === 'Work Type' && AddJobForm.value.work_location_type === '1'">
+                                    <div *ngFor="let NAdd of newAddress">
+                                        <div *ngIf="NAdd.label !='Pincode'">
+                                            <label>{{NAdd.label}}</label>
+                                            <input type="text" class="form-control" placeholder=""
+                                                [formControlName]="NAdd.name"
+                                                [ngClass]="(AddJobForm.get('job.name')?.touched && !AddJobForm.get('job.name')?.valid)?'form-control is-invalid':'form-control'" />
+
+                                            <small
+                                                *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                                class="form-text text-danger">
+                                                Please Choose a {{job.label}}
+                                            </small>
+                                        </div>
+                                        <div *ngIf="NAdd.label =='Pincode'">
+                                            <label>{{NAdd.label}}</label>
+                                            <input type="text" class="form-control" placeholder=""
+                                                [formControlName]="NAdd.name" (keypress)="onlynumbers($event)"
+                                                maxlength="6"
+                                                [ngClass]="(AddJobForm.get('job.name')?.touched && !AddJobForm.get('job.name')?.valid)?'form-control is-invalid':'form-control'" />
+
+                                            <small
+                                                *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                                class="form-text text-danger">
+                                                Please Choose a {{job.label}}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="job.label =='Job Description'">
+                                    <label>{{job.label}}
+                                        <span class="text-danger">*</span></label>
+                                    <div class="editor">
+                                        <div>
+                                            <button style="border: none; background-color: none;"
+                                                (click)="toggleBold();$event.preventDefault()"><i
+                                                    class="bi bi-type-bold"></i></button>
+                                            <button style="border: none; background-color: none;"
+                                                (click)="toggleItalic();$event.preventDefault()"><i
+                                                    class="bi bi-type-italic"></i></button>
+                                            <button style="border: none; background-color: none;"
+                                                (click)="toggleUnderline();$event.preventDefault()"><i
+                                                    class="bi bi-type-underline"></i></button>
+                                            <button style="border: none; background-color: none;"
+                                                (click)="toggleUnorderedList();$event.preventDefault()"> <i
+                                                    class="bi bi-list-ul"></i></button>
+                                            <button style="border: none; background-color: none;"
+                                                (click)="toggleOrderedList();$event.preventDefault()"><i
+                                                    class="bi bi-list-ol"></i></button>
+                                        </div>
+                                        <div contenteditable="true" class="form-control editordiv" id="des_id"
+                                            (input)="updateContent($event)"></div>
+                                    </div>
+
+                                    <!-- <input type="text" class="form-control" placeholder="" [formControlName]="job.name"
+                                        required
+                                        [ngClass]="(AddJobForm.get('job_title')?.touched && !AddJobForm.get('job_title')?.valid)?'form-control is-invalid':'form-control'" /> -->
+                                    <small
+                                        *ngIf=" !AddJobForm.get('job_title')?.valid && AddJobForm.get('job_title')?.touched"
+                                        class="form-text text-danger">
+                                        Please Enter a {{job.label}}
+                                    </small>
+                                </div>
+                            </div>
+                            <div *ngIf="error" class="bg-error mb-3">
+                                Please Fill all the fields Correctly
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-5" style="float: right;
+                            margin-right: 25px;
+                            font-size: large;
+                            width: 150px;
+                            height: 36px;
+                        ">
+                                Next
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

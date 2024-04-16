@@ -1,0 +1,172 @@
+<section class="main-content">
+    <ul class="breadcrumb breadcrumb-style">
+        <li class="breadcrumb-item">
+            <h5 class="page-title m-b-0">Interview Preference</h5>
+        </li>
+    </ul>
+    <div class="section-body">
+        <div class="col-12 col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container">
+                        <form (ngSubmit)="onSubmit()" [formGroup]="AddIntPrepForm">
+                            <div class="form-group col-md-12">
+                                <label class="form-label">Types Of Interviews
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="">
+                                    <label class="" *ngFor="let Ita of ItypeAr">
+                                        &nbsp;
+                                        <input type="radio" [value]="Ita.value" [name]="Ita.name" class=""
+                                            [formControlName]="Ita.name">
+                                        &nbsp;
+                                        <span class="" style="top: -2px;
+                                        position: relative;">{{Ita.label}}</span>
+                                        &nbsp;&nbsp;
+                                    </label>
+                                </div>
+                            </div>
+                            <div *ngIf="this.AddIntPrepForm.value.interview_type==='1'">
+                                <div class="form-group col-md-12">
+                                    <label class="form-label">Types Of Address
+                                    </label><br>
+                                    <div class="selectgroup">
+                                        <label class="selectgroup-item" style="width: 160px;"
+                                            *ngFor="let IadA of IaddAr">
+                                            <input type="radio" [value]="IadA.value" [name]="IadA.name"
+                                                class="selectgroup-input-radio" [formControlName]="IadA.name">
+                                            <span class="selectgroup-button">{{IadA.label}}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12"
+                                    *ngIf="this.AddIntPrepForm.value.interview_location_type==='1'">
+                                    <div *ngFor="let Ina of InAdd">
+                                        <label>{{Ina.label}}</label>
+                                        <input type="text" class="form-control" placeholder=""
+                                            [formControlName]="Ina.name" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Interview Dates<span class="text-danger">*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <input [type]="IDat[0].type" class="form-control"
+                                                [placeholder]="IDat[0].label" [formControlName]="IDat[0].name"
+                                                required />
+                                        </div>
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-5">
+                                            <input [type]="IDat[0].type" class="form-control"
+                                                [placeholder]="IDat[1].label" [formControlName]="IDat[1].name"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Interview Times<span class="text-danger">*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-5">
+
+                                            <input [type]="IDat[2].type" class="form-control"
+                                                [placeholder]="IDat[2].label" [formControlName]="IDat[2].name"
+                                                required />
+                                        </div>
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-5">
+                                            <input [type]="IDat[3].type" class="form-control"
+                                                [placeholder]="IDat[3].label" [formControlName]="IDat[3].name"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="this.AddIntPrepForm.value.interview_type==='2'">
+                                <div class="form-group col-md-12">
+                                    <label>Interview Date<span class="text-danger">*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input [type]="Itel[0].type" class="form-control"
+                                                [placeholder]="Itel[0].label" [formControlName]="Itel[0].name"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Interview Times<span class="text-danger">*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <input [type]="Itel[1].type" class="form-control"
+                                                [placeholder]="Itel[1].label" [formControlName]="Itel[1].name"
+                                                required />
+                                        </div>
+                                        <div class="col-md-2"></div>
+                                        <div class="col-md-5">
+                                            <input [type]="Itel[2].type" class="form-control"
+                                                [placeholder]="Itel[2].label" [formControlName]="Itel[2].name"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Contact Person<span class="text-danger">*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input [type]="Itel[3].type" class="form-control"
+                                                [placeholder]="Itel[3].label" [formControlName]="Itel[3].name"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label>Contact Phone<span class="text-danger">*</span></label>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input [type]="Itel[4].type" class="form-control"
+                                                [placeholder]="Itel[4].label" [formControlName]="Itel[4].name"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="this.AddIntPrepForm.value.interview_type==='3'">
+                                <div class="form-group col-md-12">
+                                    <label class="form-label">Do We Have To Send Relevent Resume To Your Mail ID
+                                    </label>
+                                    <br>
+                                    <div class="selectgroup">
+                                        <label class="selectgroup-item" style="width: 160px;" *ngFor="let Sia of SIArr">
+                                            <input type="radio" [value]="Sia.value" [name]="Sia.name"
+                                                [checked]="this.AddIntPrepForm.controls.s_send_resume.value == Sia.value"
+                                                class="selectgroup-input-radio" [formControlName]="Sia.name">
+                                            <span class="selectgroup-button">{{Sia.label}}</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12" *ngIf="this.AddIntPrepForm.value.s_send_resume=='1'">
+                                    <div *ngFor="let sad of SAd">
+                                        <label>{{sad.label}}</label>
+                                        <input type="text" class="form-control" placeholder=""
+                                            [formControlName]="sad.name" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="error" class="bg-error mb-3 ">
+                                "Please Fill all the fields Correctly"
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-5" style="float: right;
+                                margin-right: 25px;
+                                font-size: large;
+                                width: 150px;
+                                height: 36px;
+                            ">
+                                Submit
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

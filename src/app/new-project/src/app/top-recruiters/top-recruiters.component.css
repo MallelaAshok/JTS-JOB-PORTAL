@@ -1,0 +1,215 @@
+.top-recruiters-main{
+   /* border: 1px solid red; */
+   margin-top: 140px;
+}
+
+
+
+.top-recruiters-titel{
+   text-align: center;
+    margin:130px auto;
+   /* border: 1px solid red; */
+    
+    
+}
+.top-recruiters-titel>h1{
+    width: 75%;
+    margin: auto;
+   font-weight: 590;
+   font-size: 33px;
+}
+.top-recruiters-titel>h1>samp{
+    border-bottom: 4px solid;
+    border-image: linear-gradient(to right,#019EFF, #BF38FF);
+    border-image-slice: 01;
+    padding: 17px 15px;
+  
+}
+.silder-containers{
+     display: flex;
+     justify-content: center;
+     margin-top: 0px;
+  
+    position: relative;
+   
+}
+
+
+
+.silder-Image{
+     width: 25%;
+}
+.silder-componysinfo{
+    width: 75%;
+}
+.silder-containers-heding{
+    margin-left: 5px;
+    margin-top: 15px;
+}
+#name{
+    font-weight: 600;
+    font-size: 26px;
+}
+#Developer{
+    color: #9E9E9E;
+    font-size: 12px;
+}
+#compony-name{
+    margin-top: 14px;
+    font-size: 13px;
+}
+.silder-compony-contents{
+    width: 95%;
+    margin: 20px;
+    /* padding: 10px; */
+    font-size: 16px;
+    font-weight: 300;
+   
+    
+}
+
+.slider-wrapper{
+  
+    width: 84%;
+    overflow:hidden;
+    box-shadow: 0px 0px 15px 2px #b2b2b24b;
+    background-color: #ffff;
+    border-radius: 6px;
+    height: 300px;
+    position: relative;
+    transition: 0.6s ease-in-out;
+    
+    
+}
+.slider{
+    position: absolute;
+    /* display: inline-block; */
+    display: flex;
+    column-gap: 10px;
+    width: 199.5%;
+    align-items: center;
+    /* right: -1090px; */
+    transition: 0.6s ease-in-out;
+    /* border: 2px solid red; */
+
+}
+
+.silder-items {
+     /* display: inline-block; */
+    width: 100%;
+    display: flex;
+    transition: 0.6s ease-in-out;
+    /* padding: 10px; */
+    /* border: 5px solid red; */
+}
+
+.slider-wrapper::-webkit-scrollbar{
+    display: none;
+  
+}
+.silder-containers>button{
+    position: absolute;
+    border: none;
+    background-color: #F8F4F4;
+    padding: 10px;
+    height: 70px;
+    width: 6%;
+    border-radius: 50%;
+    top: 120px;
+    font-size: 40px;
+    
+}
+
+#slider-left-btn{
+    right: 50px;
+  
+    
+}
+#slider-right-btn{
+   left: 50px;
+    
+   
+}
+
+.silder-Image{
+    background: url(../image/Top-10-IT-Companies-in-India.png) no-repeat;
+    background-size: 170px 100px;
+    background-position: center center;
+}
+@media (max-width: 412px){
+    .top-recruiters-titel{
+      margin: 30px auto;
+    }
+    .top-recruiters-titel>h1{
+        font-size: 18px;
+    }
+   .top-recruiters-titel>h1>samp {
+            padding: 0px 15px;
+    
+        }
+    
+        .silder-containers{
+            /* border: 2px solid; */
+            width: 80%;
+            margin: auto;
+        }
+        .slider-wrapper{
+        height: 160px;
+        /* border: 2px solid blue; */
+        width: 100%;
+        margin-top: 50px;
+           
+        }
+        .slider{
+            left: 10px;
+            /* border: 2px solid red; */
+            height: 150px;
+        }
+        .silder-content{
+            /* border: 2px solid green; */
+        }
+       
+        .silder-containers-heding{
+            /* border: 2px solid red; */
+            width: 60%;
+            margin-top:40px;
+           
+        }
+        #name{
+            font-size: 10px;
+        }
+        #compony-name{
+            font-size: 10px;
+            margin-top: 1px;
+        }
+        .silder-Image {
+            background-size: 40px 20px;
+            /* border: 1px solid; */
+            width: 20%;
+                }
+        .silder-compony-contents {
+            width: 95%;
+            margin: 10px;
+            font-size: 7px;
+            font-weight: 300;
+         }
+         #slider-right-btn{
+            padding: 0px;
+            font-size: 12px;
+            left: -20px;
+            top: 100px;
+         }
+        #slider-left-btn {
+            padding: 0px;
+            font-size: 12px;
+            right: -20px;
+            top: 100px;
+        
+        }
+
+}
+
+
+
+
+

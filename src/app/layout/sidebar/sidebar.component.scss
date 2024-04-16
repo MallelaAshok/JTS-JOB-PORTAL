@@ -1,0 +1,17 @@
+.logout{
+    position: fixed;
+    background-color: white;
+    overflow: hidden;
+    z-index: 1;
+    
+  
+    bottom: 1%;
+    width: 100%;
+}
+
+.span{
+    &:active,
+    &:hover {
+        color: red;
+    }
+}

@@ -1,0 +1,86 @@
+<main class="main">
+
+
+    <div [ngClass]="[loginClassname]">
+        <nav>
+            <div [ngClass]="[Logo]">
+                <p></p>
+            </div>
+            <div class="nave-item">
+                <p (click)="nextPage('home')">Seek People</p>
+                <p (click)="nextPage('/')">Seek Job</p>
+                <button>Log in/sing up</button>
+            </div>
+        </nav>
+        <div class="login-container">
+            <div class="login-container-right">
+                <div class="container-right-content" [ngStyle]="{'color':value?' white':'#FF1479'}">
+                    <h1>UNLOCK THE POTENTIAL WITH SEEKK</h1>
+                    <p [ngStyle]="{'color':value?' white':'black'}">Explore a myriad of job opportunities in just a
+                        click!</p>
+                </div>
+                <div class="container-right-button" *ngIf="!value">
+                    <p id="get">Get started</p>
+                    <p id="book">Book Demo</p>
+                </div>
+            </div>
+            <div class="container-lift-content">
+                <div class="login-form" *ngIf="value">
+                    <div class="login-form-header">
+                        <p id="login-heading">Log in/Sign up</p>
+                        <p id="book-heading">Book Demo</p>
+                        <div id="login-slide"></div>
+                    </div>
+                    <div class="login-input-container">
+                        <input placeholder="Enter your Mobile Number" style="background: transparent;width: 80%;"
+                            maxlength="10">
+                        <div>
+                            <button type="button" class="btn btn-primary get-otp" (click)="getOtp()">
+                                <span> Get OTP</span>
+                            </button>
+                            <button type="button" class="btn btn-primary get-otp-timer">
+                                {{display}}
+                            </button>
+                        </div>
+                        <!-- <input placeholder="Password"> -->
+                        <!-- <label>Forgot Password?</label> -->
+                        <div class="form-group position-relative">
+                            <label>Enter OTP<span class="text-danger">*</span></label>
+                            <ngx-otp-input [config]="otpInputConfig" #otpInput (fill)="handleFillEvent($event)">
+                            </ngx-otp-input>
+                            <p class="otp-note">
+                                Didn't receive an OTP? <a href="#"> Resend OTP</a>
+                            </p>
+                            <label>Resend OTP?</label>
+                        </div>
+                        <div class="btn">
+                            <button>Log In</button>
+                        </div>
+
+                    </div>
+
+                    <div class="login-home-left" *ngIf="!value">
+
+                    </div>
+
+
+                </div>
+            </div>
+            <section>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 160 1440 150" class="svg-wave">
+                    <path fill="#ffff" fill-opacity="1"
+                        d="M0,256L120,234.7C240,213,480,171,720,176C960,181,1200,235,1320,261.3L1440,288L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z">
+                    </path>
+
+                </svg>
+            </section>
+
+
+
+
+
+        </div>
+
+        <app-logincontentent></app-logincontentent>
+    </div>
+</main>
